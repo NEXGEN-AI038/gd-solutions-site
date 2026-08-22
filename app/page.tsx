@@ -1,8 +1,10 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import CircuitTrace from "@/components/CircuitTrace";
+import ServicesTicker from "@/components/ServicesTicker";
 import About from "@/components/About";
 import Services from "@/components/Services";
+import AiNetworkMap from "@/components/AiNetworkMap";
 import Training from "@/components/Training";
 import Process from "@/components/Process";
 import WhyUs from "@/components/WhyUs";
@@ -17,8 +19,10 @@ export default function Home() {
       <CircuitTrace />
       <main>
         <Hero />
+        <ServicesTicker />
         <About />
         <Services />
+        <AiNetworkMap />
         <Training />
         <Process />
         <WhyUs />

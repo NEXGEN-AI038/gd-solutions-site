@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { nav, site } from "@/lib/content";
 
 export default function Footer() {
@@ -5,7 +6,12 @@ export default function Footer() {
     <footer className="border-t border-line py-12">
       <div className="container-page flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <p className="font-display text-lg font-semibold text-paper">{site.name}</p>
+          <div className="flex items-center gap-3">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-paper/95">
+              <Image src="/logo.png" alt="GD Solutions logo" width={26} height={26} />
+            </span>
+            <p className="font-display text-lg font-semibold text-paper">{site.name}</p>
+          </div>
           <p className="mt-1 font-mono text-xs uppercase tracking-wider text-signal">
             AI | Technology | Automation | Learning
           </p>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { nav, site } from "@/lib/content";
 
 export default function Nav() {
@@ -9,10 +10,15 @@ export default function Nav() {
   return (
     <header className="fixed top-0 z-50 w-full border-b border-line/70 bg-ink/85 backdrop-blur">
       <div className="container-page flex h-16 items-center justify-between">
-        <a href="#home" className="font-display text-lg font-semibold tracking-tight text-paper">
-          {site.name}
-          <span className="ml-2 font-mono text-[10px] uppercase tracking-[0.2em] text-signal">
-            AI · Tech · Learning
+        <a href="#home" className="flex items-center gap-3">
+          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-paper/95">
+            <Image src="/logo.png" alt="GD Solutions logo" width={24} height={24} />
+          </span>
+          <span className="font-display text-lg font-semibold tracking-tight text-paper">
+            {site.name}
+            <span className="ml-2 hidden font-mono text-[10px] uppercase tracking-[0.2em] text-signal sm:inline">
+              AI · Tech · Learning
+            </span>
           </span>
         </a>
 

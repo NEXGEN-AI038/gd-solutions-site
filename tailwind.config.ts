@@ -42,10 +42,29 @@ const config: Config = {
           "0%": { transform: "translateY(-100%)" },
           "100%": { transform: "translateY(100%)" },
         },
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+        "node-pulse": {
+          "0%, 100%": { transform: "scale(1)", opacity: "0.9" },
+          "50%": { transform: "scale(1.15)", opacity: "1" },
+        },
+        "hub-glow": {
+          "0%, 100%": { opacity: "0.35", transform: "scale(1)" },
+          "50%": { opacity: "0.6", transform: "scale(1.08)" },
+        },
+        "dash-flow": {
+          to: { strokeDashoffset: "-32" },
+        },
       },
       animation: {
         "pulse-trace": "pulse-trace 2.4s ease-in-out infinite",
         scan: "scan 3.5s linear infinite",
+        marquee: "marquee 26s linear infinite",
+        "node-pulse": "node-pulse 2.6s ease-in-out infinite",
+        "hub-glow": "hub-glow 3.2s ease-in-out infinite",
+        "dash-flow": "dash-flow 1.6s linear infinite",
       },
     },
   },
