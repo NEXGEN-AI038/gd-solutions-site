@@ -7,11 +7,21 @@ export const site = {
   tagline: "AI · Technology · Digital Innovation",
   description:
     "GD Solutions empowers businesses and individuals through AI automation, IT infrastructure, IT service delivery, BPO interview assistance and beginner-friendly AI, cybersecurity and OSINT training.",
-  email: "hello@gdsolutions.example",
+  email: "business.gdsolutions@gmail.com",
+  address: {
+    line1: "5th Floor, RDB Boulevard, Plot-K1, Block EP & GP",
+    line2: "Sector V, Kolkata - 700091",
+  },
+  // WhatsApp numbers for enquiries — displayed and linked as click-to-chat.
+  whatsapp: [
+    { label: "+91 98318 22045", number: "919831822045" },
+    { label: "+91 98300 08641", number: "919830008641" },
+  ],
   social: {
-    whatsapp: "coming soon",
     linkedin: "https://linkedin.com/company/gdsolutions",
     instagram: "https://instagram.com/gdsolutions",
+    // Edit this to your real Google Business review link.
+    reviewUrl: "https://g.page/r/gdsolutions/review",
   },
   year: new Date().getFullYear(),
 };
@@ -22,6 +32,7 @@ export const nav = [
   { label: "Services", href: "#services" },
   { label: "Training", href: "#training" },
   { label: "Why Us", href: "#why" },
+  { label: "Reviews", href: "#reviews" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -227,6 +238,36 @@ export const whyUs = {
     {
       title: "Customer-Focused",
       body: "Clear communication and a solution-oriented approach.",
+    },
+  ],
+};
+
+export const reviews = {
+  eyebrow: "Reviews",
+  heading: "What clients and learners say",
+  sub: "Real feedback from businesses we've automated and learners we've trained — replace with your own as they come in.",
+  ctaLabel: "Leave us a review",
+  items: [
+    {
+      quote:
+        "GD Solutions mapped our lead intake workflow and automated most of it within two weeks. Our team spends far less time on repetitive data entry now.",
+      name: "Priya Nair",
+      role: "Operations Lead, retail client",
+      rating: 5,
+    },
+    {
+      quote:
+        "The OSINT fundamentals course was clear, practical and genuinely beginner-friendly. I went from zero background to comfortable with the core techniques.",
+      name: "Arjun Mehta",
+      role: "Course participant",
+      rating: 5,
+    },
+    {
+      quote:
+        "Our IT infrastructure migration was handled with clear communication at every stage. No surprises, and the team was responsive throughout.",
+      name: "Sana Iqbal",
+      role: "IT Manager, logistics client",
+      rating: 4,
     },
   ],
 };

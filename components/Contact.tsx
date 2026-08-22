@@ -43,7 +43,27 @@ export default function Contact() {
               <a href={`mailto:${site.email}`} className="block text-paper hover:text-signal">
                 {site.email}
               </a>
-              <p className="text-muted">WhatsApp — {site.social.whatsapp}</p>
+
+              <div className="space-y-1">
+                {site.whatsapp.map((w) => (
+                  <a
+                    key={w.number}
+                    href={`https://wa.me/${w.number}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block text-muted hover:text-signal"
+                  >
+                    WhatsApp — {w.label}
+                  </a>
+                ))}
+              </div>
+
+              <p className="whitespace-pre-line text-muted">
+                {site.address.line1}
+                {"\n"}
+                {site.address.line2}
+              </p>
+
               <a href={site.social.linkedin} className="block text-muted hover:text-signal">
                 LinkedIn — {site.name}
               </a>
