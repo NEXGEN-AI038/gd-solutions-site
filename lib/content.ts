@@ -58,10 +58,40 @@ export const about = {
   ],
   // Edit these to your real numbers — they animate into view on scroll.
   stats: [
-    { value: 40, suffix: "+", label: "AI & Automation Solutions" },
-    { value: 25, suffix: "+", label: "IT Projects Delivered" },
-    { value: 300, suffix: "+", label: "Learners Trained" },
+    { value: 10, suffix: "+", label: "AI & Automation Solutions" },
+    { value: 12, suffix: "+", label: "IT Projects Delivered" },
+    { value: 100, suffix: "+", label: "Learners Trained" },
     { value: 24, suffix: "/7", label: "Professional Support" },
+  ],
+};
+
+// Continuous ticker strip — shown as a scrolling band under the hero.
+// Edit labels/order freely; the marquee duplicates the list automatically.
+export const ticker = [
+  "AI Automation",
+  "IT Infrastructure Projects",
+  "IT Service Delivery",
+  "IT Services",
+  "BPO Interview Assistance",
+  "AI Training",
+  "Cybersecurity Training",
+  "OSINT Training",
+];
+
+// Nodes for the animated AI network map. "center" is the hub (rendered
+// with the company logo); each other node orbits it with a pulsing
+// connection line.
+export const aiNetwork = {
+  eyebrow: "Powered by intelligence",
+  heading: "One hub. Every workflow connected.",
+  sub: "A live look at how GD Solutions links automation, infrastructure and training around a single intelligent core.",
+  nodes: [
+    "AI Automation",
+    "IT Infrastructure",
+    "Service Delivery",
+    "Cybersecurity",
+    "OSINT",
+    "Training",
   ],
 };
 
