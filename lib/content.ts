@@ -1,0 +1,226 @@
+// ─────────────────────────────────────────────────────────────────────────
+// SITE CONTENT — edit everything here. No component code needs to change.
+// ─────────────────────────────────────────────────────────────────────────
+
+export const site = {
+  name: "GD Solutions",
+  tagline: "AI · Technology · Digital Innovation",
+  description:
+    "GD Solutions empowers businesses and individuals through AI automation, IT infrastructure, IT service delivery, BPO interview assistance and beginner-friendly AI, cybersecurity and OSINT training.",
+  email: "hello@gdsolutions.example",
+  social: {
+    whatsapp: "coming soon",
+    linkedin: "https://linkedin.com/company/gdsolutions",
+    instagram: "https://instagram.com/gdsolutions",
+  },
+  year: new Date().getFullYear(),
+};
+
+export const nav = [
+  { label: "Home", href: "#home" },
+  { label: "About", href: "#about" },
+  { label: "Services", href: "#services" },
+  { label: "Training", href: "#training" },
+  { label: "Why Us", href: "#why" },
+  { label: "Contact", href: "#contact" },
+];
+
+export const hero = {
+  eyebrow: "AI · Technology · Digital Innovation",
+  headline: "Transforming ideas into intelligent systems.",
+  sub: "From AI-powered automation and IT infrastructure to technology services and professional training, GD Solutions helps businesses and individuals move confidently into the digital future.",
+  ctaPrimary: { label: "Explore Services", href: "#services" },
+  ctaSecondary: { label: "Get Started", href: "#contact" },
+  tags: ["AI Automation", "IT Infrastructure", "Cyber & OSINT Training"],
+};
+
+export const about = {
+  eyebrow: "About GD Solutions",
+  heading: "Technology. Automation. Growth.",
+  body: "GD Solutions is focused on helping businesses and individuals leverage the power of modern technology. We combine AI automation, IT expertise, service delivery, infrastructure solutions, and practical technology training to create meaningful and efficient solutions.",
+  values: [
+    {
+      title: "Innovation",
+      body: "Modern AI-first thinking applied to everyday business problems.",
+    },
+    {
+      title: "Practical Problem-Solving",
+      body: "Solutions built around real workflows, not theory.",
+    },
+    {
+      title: "Reliability",
+      body: "Stable delivery, clear ownership, predictable outcomes.",
+    },
+    {
+      title: "Continuous Learning",
+      body: "We keep teams and learners ahead of the technology curve.",
+    },
+  ],
+  // Edit these to your real numbers — they animate into view on scroll.
+  stats: [
+    { value: 40, suffix: "+", label: "AI & Automation Solutions" },
+    { value: 25, suffix: "+", label: "IT Projects Delivered" },
+    { value: 300, suffix: "+", label: "Learners Trained" },
+    { value: 24, suffix: "/7", label: "Professional Support" },
+  ],
+};
+
+export const services = {
+  eyebrow: "Services",
+  heading: "Solutions that move you forward",
+  sub: "Practical technology services across automation, infrastructure, operations and careers.",
+  items: [
+    {
+      code: "01",
+      title: "AI Automation",
+      body: "Automate repetitive tasks and business workflows using intelligent AI-powered solutions.",
+    },
+    {
+      code: "02",
+      title: "IT Infrastructure Projects",
+      body: "Reliable and scalable IT infrastructure solutions designed to support business growth.",
+    },
+    {
+      code: "03",
+      title: "IT Service Delivery",
+      body: "Structured and efficient IT service delivery focused on reliability, performance, and customer satisfaction.",
+    },
+    {
+      code: "04",
+      title: "IT Services",
+      body: "Flexible technology services to support organizations with their day-to-day IT requirements.",
+    },
+    {
+      code: "05",
+      title: "BPO Interview Assistance",
+      body: "Helping aspiring professionals prepare confidently for BPO and customer service interviews.",
+    },
+  ],
+  ctaHeading: "Not sure where to start?",
+  ctaBody:
+    "Tell us about your business or learning goal and we'll map the right path for you.",
+  ctaLabel: "Talk to Us",
+};
+
+export const training = {
+  eyebrow: "Training",
+  heading: "Learn. Build. Grow.",
+  sub: "Beginner-friendly courses designed to help you understand today's most important technologies — taught ethically, legally and practically.",
+  courses: [
+    {
+      title: "Introduction to Artificial Intelligence",
+      topics: [
+        "Understanding AI",
+        "Generative AI",
+        "AI tools",
+        "Prompt engineering basics",
+        "AI productivity",
+        "Practical AI applications",
+      ],
+      cta: "Explore AI Basics",
+    },
+    {
+      title: "Cybersecurity Fundamentals",
+      topics: [
+        "Introduction to cybersecurity",
+        "Common cyber threats",
+        "Online safety",
+        "Security fundamentals",
+        "Ethical cybersecurity concepts",
+        "Basic security practices",
+      ],
+      cta: "Start Learning Cybersecurity",
+    },
+    {
+      title: "OSINT Fundamentals",
+      topics: [
+        "Introduction to OSINT",
+        "Open-source information research",
+        "Digital investigation fundamentals",
+        "Search techniques",
+        "Information verification",
+        "Responsible and ethical use of information",
+      ],
+      cta: "Explore OSINT",
+    },
+  ],
+};
+
+export const process = {
+  eyebrow: "Process",
+  heading: "How we work",
+  steps: [
+    {
+      step: "01",
+      title: "Understand",
+      body: "We understand your business, technology, or learning requirements.",
+    },
+    {
+      step: "02",
+      title: "Analyze",
+      body: "We analyze the best possible approach and solution.",
+    },
+    {
+      step: "03",
+      title: "Build",
+      body: "We implement practical technology, automation, infrastructure, or training solutions.",
+    },
+    {
+      step: "04",
+      title: "Grow",
+      body: "We help you improve efficiency, knowledge, and digital capabilities.",
+    },
+  ],
+};
+
+export const whyUs = {
+  eyebrow: "Why Us",
+  heading: "Why GD Solutions?",
+  points: [
+    { title: "Innovation", body: "Modern solutions powered by AI and technology." },
+    {
+      title: "Practical Approach",
+      body: "Solutions focused on real-world business needs.",
+    },
+    {
+      title: "Technology Expertise",
+      body: "Experience across automation, IT services, infrastructure, and service delivery.",
+    },
+    {
+      title: "Continuous Learning",
+      body: "Helping individuals build relevant technology skills.",
+    },
+    {
+      title: "Flexible Solutions",
+      body: "Services designed around different business and individual requirements.",
+    },
+    {
+      title: "Customer-Focused",
+      body: "Clear communication and a solution-oriented approach.",
+    },
+  ],
+};
+
+export const finalCta = {
+  heading: "Ready to transform your ideas into solutions?",
+  body: "Whether you're looking to automate your business, improve your IT operations, implement technology solutions, or start your journey into AI and cybersecurity, GD Solutions is ready to help.",
+  ctaPrimary: { label: "Talk to Us", href: "#contact" },
+  ctaSecondary: { label: "Explore Services", href: "#services" },
+};
+
+export const contact = {
+  eyebrow: "Contact",
+  heading: "Let's build something intelligent",
+  sub: "Share your requirement — automation, infrastructure, IT services, interview preparation or training — and our team will get back to you.",
+  serviceOptions: [
+    "AI Automation",
+    "IT Infrastructure Projects",
+    "IT Service Delivery",
+    "IT Services",
+    "BPO Interview Assistance",
+    "AI Course",
+    "Cybersecurity Course",
+    "OSINT Course",
+    "Other",
+  ],
+};
