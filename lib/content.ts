@@ -6,7 +6,7 @@ export const site = {
   name: "GD Solutions",
   tagline: "AI · Technology · Digital Innovation",
   description:
-    "GD Solutions empowers businesses and individuals through AI automation, IT infrastructure, IT service delivery, BPO interview assistance and beginner-friendly AI, cybersecurity and OSINT training.",
+    "GD Solutions empowers businesses and individuals through AI automation, IT infrastructure, BMS (Building Management System), BPO interview assistance and beginner-friendly AI, cybersecurity and OSINT training.",
   email: "business.gdsolutions@gmail.com",
   address: {
     line1: "5th Floor, RDB Boulevard, Plot-K1, Block EP & GP",
@@ -48,7 +48,7 @@ export const hero = {
 export const about = {
   eyebrow: "About GD Solutions",
   heading: "Technology. Automation. Growth.",
-  body: "GD Solutions is focused on helping businesses and individuals leverage the power of modern technology. We combine AI automation, IT expertise, service delivery, infrastructure solutions, and practical technology training to create meaningful and efficient solutions.",
+  body: "GD Solutions is focused on helping businesses and individuals leverage the power of modern technology. We combine AI automation, IT expertise, building management systems, infrastructure solutions, and practical technology training to create meaningful and efficient solutions.",
   values: [
     {
       title: "Innovation",
@@ -81,7 +81,7 @@ export const about = {
 export const ticker = [
   "AI Automation",
   "IT Infrastructure Projects",
-  "IT Service Delivery",
+  "BMS (Building Management System)",
   "IT Services",
   "BPO Interview Assistance",
   "AI Training",
@@ -99,7 +99,7 @@ export const aiNetwork = {
   nodes: [
     "AI Automation",
     "IT Infrastructure",
-    "Service Delivery",
+    "BMS",
     "Cybersecurity",
     "OSINT",
     "Training",
@@ -123,8 +123,8 @@ export const services = {
     },
     {
       code: "03",
-      title: "IT Service Delivery",
-      body: "Structured and efficient IT service delivery focused on reliability, performance, and customer satisfaction.",
+      title: "BMS (Building Management System)",
+      body: "Smart building management systems for monitoring and controlling lighting, HVAC, security, and other facility operations efficiently.",
     },
     {
       code: "04",
@@ -225,7 +225,7 @@ export const whyUs = {
     },
     {
       title: "Technology Expertise",
-      body: "Experience across automation, IT services, infrastructure, and service delivery.",
+      body: "Experience across automation, IT services, infrastructure, and building management systems.",
     },
     {
       title: "Continuous Learning",
@@ -286,7 +286,7 @@ export const contact = {
   serviceOptions: [
     "AI Automation",
     "IT Infrastructure Projects",
-    "IT Service Delivery",
+    "BMS (Building Management System)",
     "IT Services",
     "BPO Interview Assistance",
     "AI Course",
