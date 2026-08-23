@@ -6,7 +6,7 @@ export const site = {
   name: "GD Solutions",
   tagline: "AI · Technology · Digital Innovation",
   description:
-    "GD Solutions empowers businesses and individuals through AI automation, IT infrastructure, BMS (Building Management System), BPO interview assistance and beginner-friendly AI, cybersecurity and OSINT training.",
+    "GD Solutions empowers businesses and individuals through AI automation, IT infrastructure, BMS (Building Management System), Business Process Outsourcing interview assistance and beginner-friendly AI, cybersecurity and OSINT training.",
   email: "business.gdsolutions@gmail.com",
   address: {
     line1: "5th Floor, RDB Boulevard, Plot-K1, Block EP & GP",
@@ -83,7 +83,7 @@ export const ticker = [
   "IT Infrastructure Projects",
   "BMS (Building Management System)",
   "IT Services",
-  "BPO Interview Assistance",
+  "Business Process Outsourcing Interview Assistance",
   "AI Training",
   "Cybersecurity Training",
   "OSINT Training",
@@ -133,8 +133,8 @@ export const services = {
     },
     {
       code: "05",
-      title: "BPO Interview Assistance",
-      body: "Helping aspiring professionals prepare confidently for BPO and customer service interviews.",
+      title: "Business Process Outsourcing Interview Assistance",
+      body: "Helping aspiring professionals prepare confidently for Business Process Outsourcing and customer service interviews.",
     },
   ],
   ctaHeading: "Not sure where to start?",
@@ -288,7 +288,7 @@ export const contact = {
     "IT Infrastructure Projects",
     "BMS (Building Management System)",
     "IT Services",
-    "BPO Interview Assistance",
+    "Business Process Outsourcing Interview Assistance",
     "AI Course",
     "Cybersecurity Course",
     "OSINT Course",
