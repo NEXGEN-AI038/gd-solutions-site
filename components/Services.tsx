@@ -1,4 +1,5 @@
 import { services } from "@/lib/content";
+import Reveal from "./Reveal";
 
 // Full class names listed literally so Tailwind's scanner picks them up
 // (it can't detect classes built by concatenating strings at runtime).
@@ -20,13 +21,15 @@ export default function Services() {
   return (
     <section id="services" className="border-t border-line py-24">
       <div className="container-page">
-        <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
-          <div>
-            <p className="eyebrow mb-4">{services.eyebrow}</p>
-            <h2 className="section-heading max-w-xl">{services.heading}</h2>
+        <Reveal>
+          <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+            <div>
+              <p className="eyebrow mb-4">{services.eyebrow}</p>
+              <h2 className="section-heading max-w-xl">{services.heading}</h2>
+            </div>
+            <p className="max-w-xs text-sm leading-relaxed text-muted">{services.sub}</p>
           </div>
-          <p className="max-w-xs text-sm leading-relaxed text-muted">{services.sub}</p>
-        </div>
+        </Reveal>
 
         <div className="mt-14 divide-y divide-line border-y border-line">
           {services.items.map((item, i) => {
@@ -36,7 +39,7 @@ export default function Services() {
             return (
               <div
                 key={item.code}
-                className={`group grid grid-cols-1 gap-4 border-l-2 border-transparent py-8 pl-4 transition-colors sm:grid-cols-[80px_1fr_auto] sm:items-center ${hoverBorderAccent}`}
+                className={`group grid grid-cols-1 gap-4 border-l-2 border-transparent py-8 pl-4 transition-all hover:bg-panel sm:grid-cols-[80px_1fr_auto] sm:items-center ${hoverBorderAccent}`}
               >
                 <span className={`font-mono text-sm ${textAccent}`}>{item.code}</span>
                 <div>

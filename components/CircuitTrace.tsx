@@ -80,7 +80,7 @@ export default function CircuitTrace() {
               className={`trace-node h-2.5 w-2.5 rounded-full border transition-colors duration-300 ${
                 activeIndex === i
                   ? "active border-signal bg-signal"
-                  : "border-line bg-ink group-hover:border-signal"
+                  : "border-muted/50 bg-panel group-hover:border-signal"
               }`}
             />
             <span className="pointer-events-none absolute right-6 whitespace-nowrap rounded-sm border border-line bg-panel px-2 py-1 font-mono text-[10px] uppercase tracking-wider text-muted opacity-0 transition-opacity duration-200 group-hover:opacity-100">

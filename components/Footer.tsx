@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="container-page flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <div className="flex items-center gap-3">
-            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-paper/95">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white border border-line">
               <Image src="/logo.png" alt="GD Solutions logo" width={26} height={26} />
             </span>
             <p className="font-display text-lg font-semibold text-paper">{site.name}</p>

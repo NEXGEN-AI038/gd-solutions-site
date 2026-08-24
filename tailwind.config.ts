@@ -9,27 +9,27 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "#0A0E14", // base background
-        panel: "#12181F", // card / panel background
-        panel2: "#171E27", // slightly raised panel
-        line: "#232B36", // hairline borders
-        paper: "#E8ECEF", // primary text
-        muted: "#8B96A5", // secondary text
+        ink: "#FFFFFF", // base background (was near-black; now white)
+        panel: "#F7F8FA", // card / panel background
+        panel2: "#EEF1F5", // slightly raised panel
+        line: "#E2E6EC", // hairline borders
+        paper: "#10151C", // primary text (was off-white; now near-black)
+        muted: "#5B6572", // secondary text
         signal: {
-          DEFAULT: "#4CE0B3", // primary accent — circuit-trace teal
-          dim: "#2E8A6E",
+          DEFAULT: "#0D9488", // primary accent — deepened teal for contrast on white
+          dim: "#0B7A70",
         },
         warm: {
-          DEFAULT: "#FF8A5B", // secondary accent — human warmth
-          dim: "#C96B45",
+          DEFAULT: "#F1650B", // secondary accent
+          dim: "#C2570C",
         },
         violet: {
-          DEFAULT: "#9B8CFF", // tertiary accent — used in rotation for variety
-          dim: "#6E5FC4",
+          DEFAULT: "#7C6FF0", // tertiary accent
+          dim: "#5F52D6",
         },
         sky: {
-          DEFAULT: "#5EC8FF", // quaternary accent — used in rotation for variety
-          dim: "#3B93C4",
+          DEFAULT: "#0EA5E9", // quaternary accent
+          dim: "#0284C7",
         },
       },
       fontFamily: {
@@ -39,7 +39,7 @@ const config: Config = {
       },
       backgroundImage: {
         "grid-fade":
-          "linear-gradient(to bottom, rgba(76,224,179,0.06), transparent 40%)",
+          "linear-gradient(to bottom, rgba(13,148,136,0.06), transparent 40%)",
       },
       keyframes: {
         "pulse-trace": {

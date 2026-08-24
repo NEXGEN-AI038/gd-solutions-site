@@ -11,7 +11,7 @@ type Particle = {
 
 const PARTICLE_COUNT = 55;
 const LINK_DISTANCE = 130;
-const SIGNAL = "76, 224, 179"; // matches the `signal` accent color, as rgb
+const SIGNAL = "13, 148, 136"; // matches the `signal` accent color, as rgb
 
 export default function AmbientAiBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -69,7 +69,7 @@ export default function AmbientAiBackground() {
           const dy = a.y - b.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < LINK_DISTANCE) {
-            const opacity = (1 - dist / LINK_DISTANCE) * 0.35;
+            const opacity = (1 - dist / LINK_DISTANCE) * 0.22;
             ctx!.strokeStyle = `rgba(${SIGNAL}, ${opacity})`;
             ctx!.lineWidth = 1;
             ctx!.beginPath();
@@ -81,7 +81,7 @@ export default function AmbientAiBackground() {
       }
 
       for (const p of particles) {
-        ctx!.fillStyle = `rgba(${SIGNAL}, 0.55)`;
+        ctx!.fillStyle = `rgba(${SIGNAL}, 0.4)`;
         ctx!.beginPath();
         ctx!.arc(p.x, p.y, 1.6, 0, Math.PI * 2);
         ctx!.fill();

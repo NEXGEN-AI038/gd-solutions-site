@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { aiNetwork } from "@/lib/content";
+import Reveal from "./Reveal";
 
 // Hub-and-spoke layout: center hub (logo) + 6 orbiting nodes.
 const CX = 400;
@@ -27,18 +28,20 @@ export default function AiNetworkMap() {
     <section className="relative overflow-hidden border-t border-line bg-ink py-24">
       {/* fine grid, quiet */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.05]"
+        className="pointer-events-none absolute inset-0 opacity-[0.08]"
         style={{
           backgroundImage:
-            "linear-gradient(#4CE0B3 1px, transparent 1px), linear-gradient(90deg, #4CE0B3 1px, transparent 1px)",
+            "linear-gradient(#0D9488 1px, transparent 1px), linear-gradient(90deg, #0D9488 1px, transparent 1px)",
           backgroundSize: "48px 48px",
         }}
       />
 
       <div className="container-page relative">
-        <p className="eyebrow mb-4">{aiNetwork.eyebrow}</p>
-        <h2 className="section-heading max-w-xl">{aiNetwork.heading}</h2>
-        <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted">{aiNetwork.sub}</p>
+        <Reveal>
+          <p className="eyebrow mb-4">{aiNetwork.eyebrow}</p>
+          <h2 className="section-heading max-w-xl">{aiNetwork.heading}</h2>
+          <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted">{aiNetwork.sub}</p>
+        </Reveal>
 
         <div className="relative mx-auto mt-14 w-full max-w-3xl">
           <svg
@@ -49,8 +52,8 @@ export default function AiNetworkMap() {
           >
             <defs>
               <radialGradient id="hubGlow" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stopColor="#4CE0B3" stopOpacity="0.55" />
-                <stop offset="100%" stopColor="#4CE0B3" stopOpacity="0" />
+                <stop offset="0%" stopColor="#0D9488" stopOpacity="0.55" />
+                <stop offset="100%" stopColor="#0D9488" stopOpacity="0" />
               </radialGradient>
             </defs>
 
@@ -62,7 +65,7 @@ export default function AiNetworkMap() {
                 y1={CY}
                 x2={n.x}
                 y2={n.y}
-                stroke="#232B36"
+                stroke="#E2E6EC"
                 strokeWidth={2}
               />
             ))}
@@ -73,7 +76,7 @@ export default function AiNetworkMap() {
                 y1={CY}
                 x2={n.x}
                 y2={n.y}
-                stroke="#4CE0B3"
+                stroke="#0D9488"
                 strokeWidth={2}
                 strokeDasharray="6 10"
                 strokeLinecap="round"
@@ -85,7 +88,7 @@ export default function AiNetworkMap() {
             {/* traveling pulse dots, hidden for reduced-motion users */}
             <g className="motion-reduce:hidden">
               {nodes.map((n, i) => (
-                <circle key={`pulse-${i}`} r={4} fill="#4CE0B3">
+                <circle key={`pulse-${i}`} r={4} fill="#0D9488">
                   <animateMotion
                     dur="2.8s"
                     begin={`${n.delay}s`}
@@ -106,7 +109,7 @@ export default function AiNetworkMap() {
 
             {/* hub */}
             <circle cx={CX} cy={CY} r={70} fill="url(#hubGlow)" className="animate-hub-glow" />
-            <circle cx={CX} cy={CY} r={46} fill="#12181F" stroke="#4CE0B3" strokeWidth={2} />
+            <circle cx={CX} cy={CY} r={46} fill="#F7F8FA" stroke="#0D9488" strokeWidth={2} />
             <foreignObject x={CX - 30} y={CY - 30} width={60} height={60}>
               <div className="flex h-full w-full items-center justify-center">
                 <Image src="/logo.png" alt="GD Solutions" width={40} height={40} />
@@ -116,12 +119,12 @@ export default function AiNetworkMap() {
             {/* outer nodes */}
             {nodes.map((n, i) => (
               <g key={`node-${i}`}>
-                <circle cx={n.x} cy={n.y} r={22} fill="#12181F" stroke="#232B36" strokeWidth={2} />
+                <circle cx={n.x} cy={n.y} r={22} fill="#F7F8FA" stroke="#E2E6EC" strokeWidth={2} />
                 <circle
                   cx={n.x}
                   cy={n.y}
                   r={5}
-                  fill="#4CE0B3"
+                  fill="#0D9488"
                   className="animate-node-pulse"
                   style={{ transformOrigin: `${n.x}px ${n.y}px` }}
                 />
@@ -129,7 +132,7 @@ export default function AiNetworkMap() {
                   x={n.x}
                   y={n.y > CY ? n.y + 40 : n.y - 32}
                   textAnchor="middle"
-                  fill="#8B96A5"
+                  fill="#5B6572"
                   fontSize="13"
                   fontFamily="var(--font-mono)"
                   letterSpacing="0.5"

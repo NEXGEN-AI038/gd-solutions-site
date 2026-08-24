@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import { process } from "@/lib/content";
+import Reveal from "./Reveal";
 
 function FlowArrows() {
   const icons = Array.from({ length: 14 });
@@ -52,8 +53,10 @@ export default function Process() {
   return (
     <section className="border-t border-line py-24">
       <div className="container-page">
-        <p className="eyebrow mb-4">{process.eyebrow}</p>
-        <h2 className="section-heading max-w-xl">{process.heading}</h2>
+        <Reveal>
+          <p className="eyebrow mb-4">{process.eyebrow}</p>
+          <h2 className="section-heading max-w-xl">{process.heading}</h2>
+        </Reveal>
 
         <div className="relative mt-16">
           {/* static hairline track, desktop */}
