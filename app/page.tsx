@@ -4,6 +4,7 @@ import CircuitTrace from "@/components/CircuitTrace";
 import ServicesTicker from "@/components/ServicesTicker";
 import About from "@/components/About";
 import Services from "@/components/Services";
+import MediaShowcase from "@/components/MediaShowcase";
 import AiNetworkMap from "@/components/AiNetworkMap";
 import Training from "@/components/Training";
 import Process from "@/components/Process";
@@ -24,6 +25,7 @@ export default function Home() {
         <ServicesTicker />
         <About />
         <Services />
+        <MediaShowcase />
         <AiNetworkMap />
         <Training />
         <Process />

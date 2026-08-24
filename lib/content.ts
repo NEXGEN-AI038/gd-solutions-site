@@ -43,6 +43,12 @@ export const hero = {
   ctaPrimary: { label: "Explore Services", href: "#services" },
   ctaSecondary: { label: "Get Started", href: "#contact" },
   tags: ["AI Automation", "IT Infrastructure", "Cyber & OSINT Training"],
+  // Once you have a real product screenshot or explainer-video clip, drop
+  // the file in /public and switch this to show it instead of the
+  // built-in illustration:
+  //   image → { type: "image", src: "/showcase/dashboard.png", alt: "..." }
+  //   video → { type: "video", src: "/showcase/demo.mp4" }
+  media: { type: "illustration" as "illustration" | "image" | "video", src: "", alt: "" },
 };
 
 export const about = {
@@ -238,6 +244,37 @@ export const whyUs = {
     {
       title: "Customer-Focused",
       body: "Clear communication and a solution-oriented approach.",
+    },
+  ],
+};
+
+// Screenshot / demo-video slots — drop your own files in /public/showcase
+// and fill in `src` below; leave `src` empty to keep the placeholder card.
+export const showcase = {
+  eyebrow: "See it in action",
+  heading: "Real workflows, real results",
+  sub: "Screenshots and short clips from our automation and infrastructure work — swap these in any time.",
+  items: [
+    {
+      title: "Automation Dashboard",
+      caption: "Add a screenshot of an automation workflow or dashboard here.",
+      type: "image" as "image" | "video",
+      src: "", // e.g. "/showcase/automation-dashboard.png"
+      alt: "Automation dashboard screenshot",
+    },
+    {
+      title: "Infrastructure Monitoring",
+      caption: "Add a screenshot of an infrastructure or BMS monitoring view here.",
+      type: "image" as "image" | "video",
+      src: "", // e.g. "/showcase/infra-monitoring.png"
+      alt: "Infrastructure monitoring screenshot",
+    },
+    {
+      title: "Explainer Walkthrough",
+      caption: "Add a short explainer video clip here.",
+      type: "video" as "image" | "video",
+      src: "", // e.g. "/showcase/explainer.mp4"
+      alt: "Explainer video",
     },
   ],
 };

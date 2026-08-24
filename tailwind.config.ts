@@ -23,6 +23,14 @@ const config: Config = {
           DEFAULT: "#FF8A5B", // secondary accent — human warmth
           dim: "#C96B45",
         },
+        violet: {
+          DEFAULT: "#9B8CFF", // tertiary accent — used in rotation for variety
+          dim: "#6E5FC4",
+        },
+        sky: {
+          DEFAULT: "#5EC8FF", // quaternary accent — used in rotation for variety
+          dim: "#3B93C4",
+        },
       },
       fontFamily: {
         display: ["var(--font-display)", "sans-serif"],
