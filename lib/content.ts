@@ -30,6 +30,7 @@ export const nav = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
+  { label: "Case Studies", href: "#case-studies" },
   { label: "Training", href: "#training" },
   { label: "Why Us", href: "#why" },
   { label: "Reviews", href: "#reviews" },
@@ -248,33 +249,50 @@ export const whyUs = {
   ],
 };
 
-// Screenshot / demo-video slots — drop your own files in /public/showcase
-// and fill in `src` below; leave `src` empty to keep the placeholder card.
-export const showcase = {
-  eyebrow: "See it in action",
-  heading: "Real workflows, real results",
-  sub: "Screenshots and short clips from our automation and infrastructure work — swap these in any time.",
+// Real case studies from live projects — infographics + video/audio
+// walkthroughs. Add more the same way any time.
+export const caseStudies = {
+  eyebrow: "Case Studies",
+  heading: "Automation in the wild",
+  sub: "A closer look at workflows we've actually built — real infographics and walkthroughs from live projects.",
   items: [
     {
-      title: "Automation Dashboard",
-      caption: "Add a screenshot of an automation workflow or dashboard here.",
-      type: "image" as "image" | "video",
-      src: "", // e.g. "/showcase/automation-dashboard.png"
-      alt: "Automation dashboard screenshot",
+      title: "From Webhook to Inbox: an Automated Data Workflow",
+      tag: "Data Automation",
+      description:
+        "How incoming webhook data gets captured, iterated, cross-referenced against a database and spreadsheet, then routed back out through automated email — no manual handling required.",
+      image: "/case-studies/automated-data-workflow-process.webp",
+      media: {
+        type: "video" as "video" | "audio",
+        src: "/case-studies/videos/anatomy-of-automation.mp4",
+        poster: "/case-studies/anatomy-of-automation-poster.jpg",
+        label: "Watch the full walkthrough",
+      },
     },
     {
-      title: "Infrastructure Monitoring",
-      caption: "Add a screenshot of an infrastructure or BMS monitoring view here.",
-      type: "image" as "image" | "video",
-      src: "", // e.g. "/showcase/infra-monitoring.png"
-      alt: "Infrastructure monitoring screenshot",
+      title: "The Automated Invoice & Receipt Management Workflow",
+      tag: "Finance Automation",
+      description:
+        "An AI-powered pipeline that monitors a Gmail inbox, classifies invoices vs. receipts, extracts and validates the data, prevents duplicate entries, and logs everything straight to the ledger.",
+      image: "/case-studies/automated-invoice-management-process.webp",
+      media: {
+        type: "audio" as "video" | "audio",
+        src: "/case-studies/videos/automated-invoice-workflow-explainer.m4a",
+        label: "Listen to the explainer",
+      },
     },
     {
-      title: "Explainer Walkthrough",
-      caption: "Add a short explainer video clip here.",
-      type: "video" as "image" | "video",
-      src: "", // e.g. "/showcase/explainer.mp4"
-      alt: "Explainer video",
+      title: "The Anatomy of a Telegram Cloth Store Bot",
+      tag: "Conversational AI",
+      description:
+        "A five-path logic router that handles menu browsing, item selection, checkout and payment for a retail store entirely inside Telegram — synced live to Sheets and a data store.",
+      image: "/case-studies/messaging-store-bot-anatomy.webp",
+      media: {
+        type: "video" as "video" | "audio",
+        src: "/case-studies/videos/cloth-store-bot-deconstructed.mp4",
+        poster: "/case-studies/cloth-store-bot-poster.jpg",
+        label: "Watch the demo",
+      },
     },
   ],
 };
