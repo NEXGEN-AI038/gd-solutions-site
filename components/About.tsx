@@ -1,6 +1,10 @@
 import { about } from "@/lib/content";
 import Counter from "./Counter";
 import Reveal from "./Reveal";
+import { SparkleIcon, TargetIcon, ShieldIcon, BookIcon } from "./Icons";
+
+const ICONS = [SparkleIcon, TargetIcon, ShieldIcon, BookIcon];
+const ACCENT_TEXT = ["text-signal", "text-warm", "text-violet", "text-sky"];
 
 export default function About() {
   return (
@@ -14,12 +18,16 @@ export default function About() {
 
         <Reveal delay={100}>
           <div className="mt-14 grid grid-cols-1 gap-px overflow-hidden rounded-sm border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
-            {about.values.map((v) => (
-              <div key={v.title} className="bg-panel p-6 transition-colors hover:bg-panel2">
-                <h3 className="font-display text-lg font-medium text-paper">{v.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted">{v.body}</p>
-              </div>
-            ))}
+            {about.values.map((v, i) => {
+              const Icon = ICONS[i % ICONS.length];
+              return (
+                <div key={v.title} className="bg-panel p-6 transition-colors hover:bg-panel2">
+                  <Icon className={`mb-3 h-6 w-6 ${ACCENT_TEXT[i % ACCENT_TEXT.length]}`} />
+                  <h3 className="font-display text-lg font-medium text-paper">{v.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">{v.body}</p>
+                </div>
+              );
+            })}
           </div>
         </Reveal>
 
