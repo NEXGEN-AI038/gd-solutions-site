@@ -249,12 +249,14 @@ export const whyUs = {
   ],
 };
 
-// Real case studies from live projects — infographics + video/audio
-// walkthroughs. Add more the same way any time.
+// Real case studies from live projects — infographics + a structured
+// client story (About / Scenario / Challenges / Solution / Benefit).
+// Add more the same way any time. Swap the placeholder client lines for
+// real client names/details as you get sign-off to use them.
 export const caseStudies = {
   eyebrow: "Case Studies",
   heading: "Automation in the wild",
-  sub: "A closer look at workflows we've actually built — real infographics and walkthroughs from live projects.",
+  sub: "A closer look at workflows we've actually built — real infographics and the story behind each one.",
   items: [
     {
       title: "From Webhook to Inbox: an Automated Data Workflow",
@@ -262,11 +264,21 @@ export const caseStudies = {
       description:
         "How incoming webhook data gets captured, iterated, cross-referenced against a database and spreadsheet, then routed back out through automated email — no manual handling required.",
       image: "/case-studies/automated-data-workflow-process.webp",
-      media: {
-        type: "video" as "video" | "audio",
-        src: "/case-studies/videos/anatomy-of-automation.mp4",
-        poster: "/case-studies/anatomy-of-automation-poster.jpg",
-        label: "Watch the full walkthrough",
+      story: {
+        client:
+          "A fast-growing service business receiving a steady stream of incoming data requests through third-party webhooks.",
+        scenario:
+          "Every incoming webhook needed to be logged, checked against existing records in a database and spreadsheet, and then followed up on by email — all before the next one arrived.",
+        challenges: [
+          "Data was being copied between systems by hand, with no consistent process",
+          "Cross-checking against the database and spreadsheet ate up hours every week",
+          "Follow-up emails went out late, or were sometimes missed entirely",
+          "Manual handling meant a constant risk of typos and duplicate records",
+        ],
+        solution:
+          "GD Solutions built an end-to-end automation that captures each webhook the moment it arrives, iterates through the payload, cross-references it against the database and spreadsheet in real time, and routes a follow-up email automatically — with zero manual touchpoints.",
+        benefit:
+          "From manual, hours-long data wrangling to a fully automated pipeline: incoming data is captured, verified and actioned within seconds, freeing the team to focus on higher-value work instead of data entry.",
       },
     },
     {
@@ -275,10 +287,21 @@ export const caseStudies = {
       description:
         "An AI-powered pipeline that monitors a Gmail inbox, classifies invoices vs. receipts, extracts and validates the data, prevents duplicate entries, and logs everything straight to the ledger.",
       image: "/case-studies/automated-invoice-management-process.webp",
-      media: {
-        type: "audio" as "video" | "audio",
-        src: "/case-studies/videos/automated-invoice-workflow-explainer.m4a",
-        label: "Listen to the explainer",
+      story: {
+        client:
+          "A growing accounts team managing dozens of invoices and receipts landing in a shared Gmail inbox every week.",
+        scenario:
+          "Every invoice and receipt had to be opened, read, sorted from one another, and manually keyed into the ledger before month-end books could close.",
+        challenges: [
+          "Sorting invoices from receipts by hand was slow and inconsistent",
+          "Key details (amounts, vendors, dates) were manually retyped into the ledger",
+          "Duplicate entries slipped through when the same document was processed twice",
+          "Books regularly closed late while the backlog was cleared",
+        ],
+        solution:
+          "GD Solutions built an AI-powered pipeline that monitors the inbox continuously, automatically classifies each document as an invoice or a receipt, extracts and validates the key data, checks for duplicates, and logs everything straight to the ledger.",
+        benefit:
+          "From manual sorting and retyping to a fully automated ledger feed: books close faster, duplicate payments are prevented, and the accounts team no longer touches a single document by hand.",
       },
     },
     {
@@ -287,11 +310,20 @@ export const caseStudies = {
       description:
         "A five-path logic router that handles menu browsing, item selection, checkout and payment for a retail store entirely inside Telegram — synced live to Sheets and a data store.",
       image: "/case-studies/messaging-store-bot-anatomy.webp",
-      media: {
-        type: "video" as "video" | "audio",
-        src: "/case-studies/videos/cloth-store-bot-deconstructed.mp4",
-        poster: "/case-studies/cloth-store-bot-poster.jpg",
-        label: "Watch the demo",
+      story: {
+        client: "A retail apparel store selling directly to customers over Telegram.",
+        scenario:
+          "Customers wanted to browse the catalogue, pick items, check out and pay without ever leaving the chat — but every message was being answered manually by staff.",
+        challenges: [
+          "Orders placed outside business hours were missed until the next day",
+          "Staff had to manually track stock, orders and payments across chats",
+          "Checkout coordination by hand was slow and error-prone",
+          "Keeping the order sheet and inventory in sync required constant manual updates",
+        ],
+        solution:
+          "GD Solutions built a five-path logic router inside Telegram that handles menu browsing, item selection, checkout and payment automatically — with every order synced live to Sheets and a central data store.",
+        benefit:
+          "From manually-answered chats to a 24/7 automated storefront: orders are captured and processed around the clock, nothing is missed, and inventory stays in sync without anyone touching a spreadsheet.",
       },
     },
   ],
