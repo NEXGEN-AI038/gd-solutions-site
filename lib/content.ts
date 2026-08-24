@@ -249,81 +249,68 @@ export const whyUs = {
   ],
 };
 
-// Real case studies from live projects — infographics + a structured
-// client story (About / Scenario / Challenges / Solution / Benefit).
-// Add more the same way any time. Swap the placeholder client lines for
-// real client names/details as you get sign-off to use them.
+// Real case studies from live projects — infographics with a benefits /
+// usage-scenario breakdown. Add more the same way any time.
 export const caseStudies = {
   eyebrow: "Case Studies",
   heading: "Automation in the wild",
-  sub: "A closer look at workflows we've actually built — real infographics and the story behind each one.",
+  sub: "A closer look at workflows we've actually built — real infographics from live projects.",
   items: [
     {
       title: "From Webhook to Inbox: an Automated Data Workflow",
       tag: "Data Automation",
-      description:
-        "How incoming webhook data gets captured, iterated, cross-referenced against a database and spreadsheet, then routed back out through automated email — no manual handling required.",
       image: "/case-studies/automated-data-workflow-process.webp",
       story: {
-        client:
-          "A fast-growing service business receiving a steady stream of incoming data requests through third-party webhooks.",
+        client: "Operations team handling incoming data feeds",
         scenario:
-          "Every incoming webhook needed to be logged, checked against existing records in a database and spreadsheet, and then followed up on by email — all before the next one arrived.",
+          "The team received a constant stream of unpredictable webhook data that needed converting into usable records and communicating to stakeholders.",
         challenges: [
-          "Data was being copied between systems by hand, with no consistent process",
-          "Cross-checking against the database and spreadsheet ate up hours every week",
-          "Follow-up emails went out late, or were sometimes missed entirely",
-          "Manual handling meant a constant risk of typos and duplicate records",
+          "Manual JSON parsing was slow and error-prone",
+          "No consistent way to cross-reference new records against existing data",
+          "File retrieval and email updates were done by hand",
         ],
         solution:
-          "GD Solutions built an end-to-end automation that captures each webhook the moment it arrives, iterates through the payload, cross-references it against the database and spreadsheet in real time, and routes a follow-up email automatically — with zero manual touchpoints.",
+          "Built an automated pipeline that captures webhook data, iterates through each record, cross-references it against a database and spreadsheet, then retrieves relevant files and sends updates via Gmail automatically.",
         benefit:
-          "From manual, hours-long data wrangling to a fully automated pipeline: incoming data is captured, verified and actioned within seconds, freeing the team to focus on higher-value work instead of data entry.",
+          "Eliminated manual data entry entirely and cut the time from data receipt to stakeholder notification from hours to minutes.",
       },
     },
     {
       title: "The Automated Invoice & Receipt Management Workflow",
       tag: "Finance Automation",
-      description:
-        "An AI-powered pipeline that monitors a Gmail inbox, classifies invoices vs. receipts, extracts and validates the data, prevents duplicate entries, and logs everything straight to the ledger.",
       image: "/case-studies/automated-invoice-management-process.webp",
       story: {
-        client:
-          "A growing accounts team managing dozens of invoices and receipts landing in a shared Gmail inbox every week.",
+        client: "Finance team managing a high email volume",
         scenario:
-          "Every invoice and receipt had to be opened, read, sorted from one another, and manually keyed into the ledger before month-end books could close.",
+          "Invoices and receipts arrived in a shared Gmail inbox faster than the team could manually sort, extract data from, and log them.",
         challenges: [
-          "Sorting invoices from receipts by hand was slow and inconsistent",
-          "Key details (amounts, vendors, dates) were manually retyped into the ledger",
-          "Duplicate entries slipped through when the same document was processed twice",
-          "Books regularly closed late while the backlog was cleared",
+          "High volume of unsorted invoices and receipts",
+          "Manual data entry led to duplicate ledger entries",
+          "No consistent validation before entries were finalized",
         ],
         solution:
-          "GD Solutions built an AI-powered pipeline that monitors the inbox continuously, automatically classifies each document as an invoice or a receipt, extracts and validates the key data, checks for duplicates, and logs everything straight to the ledger.",
+          "An AI-powered pipeline monitors the inbox, classifies each document as an invoice or receipt, extracts the relevant data, validates it across channels, checks for duplicates, and logs every entry to the ledger automatically.",
         benefit:
-          "From manual sorting and retyping to a fully automated ledger feed: books close faster, duplicate payments are prevented, and the accounts team no longer touches a single document by hand.",
+          "Removed manual sorting and data entry, cut duplicate entries to near zero, and gave the finance team a fully validated, always-current ledger.",
       },
     },
     {
       title: "The Anatomy of a Telegram Cloth Store Bot",
       tag: "Conversational AI",
-      description:
-        "A five-path logic router that handles menu browsing, item selection, checkout and payment for a retail store entirely inside Telegram — synced live to Sheets and a data store.",
       image: "/case-studies/messaging-store-bot-anatomy.webp",
       story: {
-        client: "A retail apparel store selling directly to customers over Telegram.",
+        client: "Retail store selling via Telegram",
         scenario:
-          "Customers wanted to browse the catalogue, pick items, check out and pay without ever leaving the chat — but every message was being answered manually by staff.",
+          "Customers messaged the store directly on Telegram to browse items, ask questions and place orders — all handled manually by staff.",
         challenges: [
-          "Orders placed outside business hours were missed until the next day",
-          "Staff had to manually track stock, orders and payments across chats",
-          "Checkout coordination by hand was slow and error-prone",
-          "Keeping the order sheet and inventory in sync required constant manual updates",
+          "Staff had to manually respond to every message",
+          "No easy way to track customer history or order status",
+          "Payment and order data lived in disconnected spreadsheets",
         ],
         solution:
-          "GD Solutions built a five-path logic router inside Telegram that handles menu browsing, item selection, checkout and payment automatically — with every order synced live to Sheets and a central data store.",
+          "Built a five-path logic router inside Telegram that handles menu browsing, item selection, checkout and payment automatically, synced live to Sheets and a data store.",
         benefit:
-          "From manually-answered chats to a 24/7 automated storefront: orders are captured and processed around the clock, nothing is missed, and inventory stays in sync without anyone touching a spreadsheet.",
+          "The bot now handles the full purchase flow with no manual intervention, freeing up staff time and giving the business a live, always-accurate record of every order.",
       },
     },
   ],
