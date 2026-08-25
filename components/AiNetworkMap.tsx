@@ -2,12 +2,12 @@ import Image from "next/image";
 import { aiNetwork } from "@/lib/content";
 import Reveal from "./Reveal";
 
-// Hub-and-spoke layout: center hub (logo) + 6 orbiting nodes.
-const CX = 400;
-const CY = 250;
-const R = 168;
-
-const ANGLES_DEG = [-90, -30, 30, 90, 150, 210]; // top, clockwise hexagon
+// Hub-and-spoke layout: center hub (logo) + orbiting nodes, evenly spaced
+// starting from the top — automatically adapts to however many nodes are
+// listed in aiNetwork.nodes.
+const CX = 410;
+const CY = 260;
+const R = 185;
 
 function toXY(angleDeg: number) {
   const rad = (angleDeg * Math.PI) / 180;
@@ -18,9 +18,10 @@ function toXY(angleDeg: number) {
 }
 
 export default function AiNetworkMap() {
+  const count = aiNetwork.nodes.length;
   const nodes = aiNetwork.nodes.map((label, i) => ({
     label,
-    ...toXY(ANGLES_DEG[i % ANGLES_DEG.length]),
+    ...toXY(-90 + (360 / count) * i),
     delay: i * 0.35,
   }));
 
@@ -45,7 +46,7 @@ export default function AiNetworkMap() {
 
         <div className="relative mx-auto mt-14 w-full max-w-3xl">
           <svg
-            viewBox="0 0 800 500"
+            viewBox="0 0 820 540"
             className="h-auto w-full"
             role="img"
             aria-label="Animated diagram of GD Solutions' services connected to a central AI hub"
@@ -133,9 +134,9 @@ export default function AiNetworkMap() {
                   y={n.y > CY ? n.y + 40 : n.y - 32}
                   textAnchor="middle"
                   fill="#5B6572"
-                  fontSize="13"
+                  fontSize="12"
                   fontFamily="var(--font-mono)"
-                  letterSpacing="0.5"
+                  letterSpacing="0.3"
                 >
                   {n.label}
                 </text>

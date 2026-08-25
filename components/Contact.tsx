@@ -2,8 +2,17 @@
 
 import { useState, type FormEvent } from "react";
 import { contact, site } from "@/lib/content";
+import Reveal from "./Reveal";
+import { MailIcon, PinIcon, WhatsappGlyphIcon, LinkedinIcon, InstagramIcon } from "./Icons";
 
 type Status = "idle" | "sending" | "sent" | "error";
+
+const ACCENT_ICON_BG = [
+  "bg-signal/10 text-signal",
+  "bg-warm/10 text-warm",
+  "bg-violet/10 text-violet",
+  "bg-sky/10 text-sky",
+];
 
 export default function Contact() {
   const [status, setStatus] = useState<Status>("idle");
@@ -31,60 +40,100 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="border-t border-line py-24">
+    <section id="contact" className="border-t border-line bg-panel2 py-24">
       <div className="container-page">
-        <div className="grid grid-cols-1 gap-16 lg:grid-cols-[1fr_1.2fr]">
-          <div>
+        <Reveal>
+          <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow mb-4">{contact.eyebrow}</p>
             <h2 className="section-heading">{contact.heading}</h2>
-            <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted">{contact.sub}</p>
+            <p className="mt-4 text-sm leading-relaxed text-muted">{contact.sub}</p>
+          </div>
+        </Reveal>
 
-            <div className="mt-10 space-y-4 font-mono text-sm">
-              <a href={`mailto:${site.email}`} className="block text-paper hover:text-signal">
-                {site.email}
-              </a>
+        <Reveal delay={100}>
+          <div className="mx-auto mt-12 grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <a
+              href={`mailto:${site.email}`}
+              className="group flex flex-col items-start gap-3 rounded-sm border border-line bg-panel p-5 transition-all duration-300 hover:-translate-y-1 hover:border-signal/40 hover:shadow-lg hover:shadow-signal/5"
+            >
+              <span className={`flex h-11 w-11 items-center justify-center rounded-full ${ACCENT_ICON_BG[0]}`}>
+                <MailIcon className="h-5 w-5" />
+              </span>
+              <div>
+                <p className="font-mono text-[11px] uppercase tracking-wider text-muted">Email</p>
+                <p className="mt-0.5 break-all text-sm text-paper">{site.email}</p>
+              </div>
+            </a>
 
-              <div className="space-y-1">
+            <div className="flex flex-col items-start gap-3 rounded-sm border border-line bg-panel p-5 transition-all duration-300 hover:-translate-y-1 hover:border-signal/40 hover:shadow-lg hover:shadow-signal/5">
+              <span className={`flex h-11 w-11 items-center justify-center rounded-full ${ACCENT_ICON_BG[1]}`}>
+                <WhatsappGlyphIcon className="h-5 w-5" />
+              </span>
+              <div>
+                <p className="font-mono text-[11px] uppercase tracking-wider text-muted">WhatsApp</p>
                 {site.whatsapp.map((w) => (
                   <a
                     key={w.number}
                     href={`https://wa.me/${w.number}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block text-muted hover:text-signal"
+                    className="mt-0.5 block text-sm text-paper hover:text-signal"
                   >
-                    WhatsApp — {w.label}
+                    {w.label}
                   </a>
                 ))}
               </div>
-
-              <p className="whitespace-pre-line text-muted">
-                {site.address.line1}
-                {"\n"}
-                {site.address.line2}
-              </p>
-
-              <a href={site.social.linkedin} className="block text-muted hover:text-signal">
-                LinkedIn — {site.name}
-              </a>
-              <a href={site.social.instagram} className="block text-muted hover:text-signal">
-                Instagram — @gdsolutions
-              </a>
             </div>
 
-            <div className="mt-10">
-              <p className="font-mono text-xs uppercase tracking-wider text-muted">
-                Quick-select what you need — it fills the form
-              </p>
-              <div className="mt-3 flex flex-wrap gap-2">
+            <div className="flex flex-col items-start gap-3 rounded-sm border border-line bg-panel p-5 transition-all duration-300 hover:-translate-y-1 hover:border-signal/40 hover:shadow-lg hover:shadow-signal/5">
+              <span className={`flex h-11 w-11 items-center justify-center rounded-full ${ACCENT_ICON_BG[2]}`}>
+                <PinIcon className="h-5 w-5" />
+              </span>
+              <div>
+                <p className="font-mono text-[11px] uppercase tracking-wider text-muted">Address</p>
+                <p className="mt-0.5 whitespace-pre-line text-sm text-paper">
+                  {site.address.line1}
+                  {"\n"}
+                  {site.address.line2}
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-col items-start gap-3 rounded-sm border border-line bg-panel p-5 transition-all duration-300 hover:-translate-y-1 hover:border-signal/40 hover:shadow-lg hover:shadow-signal/5">
+              <span className={`flex h-11 w-11 items-center justify-center rounded-full ${ACCENT_ICON_BG[3]}`}>
+                <LinkedinIcon className="h-5 w-5" />
+              </span>
+              <div>
+                <p className="font-mono text-[11px] uppercase tracking-wider text-muted">Follow Us</p>
+                <a href={site.social.linkedin} className="mt-0.5 block text-sm text-paper hover:text-signal">
+                  LinkedIn
+                </a>
+                <a
+                  href={site.social.instagram}
+                  className="mt-0.5 flex items-center gap-1.5 text-sm text-paper hover:text-signal"
+                >
+                  <InstagramIcon className="h-3.5 w-3.5" /> Instagram
+                </a>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+
+        <Reveal delay={200}>
+          <form onSubmit={handleSubmit} className="mx-auto mt-14 max-w-3xl space-y-6 rounded-sm border border-line bg-panel p-6 sm:p-10">
+            <div>
+              <label className="mb-3 block font-mono text-xs uppercase tracking-wider text-muted">
+                What do you need?
+              </label>
+              <div className="flex flex-wrap gap-2">
                 {contact.serviceOptions.map((opt) => (
                   <button
                     key={opt}
                     type="button"
                     onClick={() => setService(opt)}
-                    className={`rounded-full border px-3 py-1.5 font-mono text-xs transition-colors ${
+                    className={`rounded-full border px-3 py-1.5 font-mono text-xs transition-all ${
                       service === opt
-                        ? "border-signal bg-signal/10 text-signal"
+                        ? "border-signal bg-signal text-white shadow-md shadow-signal/20"
                         : "border-line text-muted hover:border-signal hover:text-signal"
                     }`}
                   >
@@ -92,34 +141,14 @@ export default function Contact() {
                   </button>
                 ))}
               </div>
+              <input type="hidden" name="service" value={service} />
             </div>
-          </div>
 
-          <form onSubmit={handleSubmit} className="space-y-5">
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
               <Field label="Full Name" name="name" required />
               <Field label="Email Address" name="email" type="email" required />
             </div>
             <Field label="Company / Organization" name="company" />
-
-            <div>
-              <label className="mb-2 block font-mono text-xs uppercase tracking-wider text-muted">
-                Service Interested In
-              </label>
-              <select
-                name="service"
-                value={service}
-                onChange={(e) => setService(e.target.value)}
-                className="w-full rounded-sm border border-line bg-panel px-4 py-3 text-sm text-paper focus:border-signal"
-              >
-                <option value="">Select a service</option>
-                {contact.serviceOptions.map((opt) => (
-                  <option key={opt} value={opt}>
-                    {opt}
-                  </option>
-                ))}
-              </select>
-            </div>
 
             <div>
               <label className="mb-2 block font-mono text-xs uppercase tracking-wider text-muted">
@@ -129,7 +158,7 @@ export default function Contact() {
                 name="message"
                 rows={5}
                 required
-                className="w-full rounded-sm border border-line bg-panel px-4 py-3 text-sm text-paper focus:border-signal"
+                className="w-full rounded-sm border border-line bg-panel2 px-4 py-3 text-sm text-paper focus:border-signal"
               />
             </div>
 
@@ -148,7 +177,7 @@ export default function Contact() {
               </p>
             )}
           </form>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -174,7 +203,7 @@ function Field({
         type={type}
         name={name}
         required={required}
-        className="w-full rounded-sm border border-line bg-panel px-4 py-3 text-sm text-paper focus:border-signal"
+        className="w-full rounded-sm border border-line bg-panel2 px-4 py-3 text-sm text-paper focus:border-signal"
       />
     </div>
   );

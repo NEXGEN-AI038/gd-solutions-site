@@ -108,6 +108,7 @@ export const aiNetwork = {
     "AI Automation",
     "IT Infrastructure",
     "Surveillance",
+    "Website Design",
     "Cybersecurity",
     "OSINT",
     "Training",
