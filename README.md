@@ -37,30 +37,32 @@ To restyle instead of just re-word:
 
 ## 3. Connect the contact form
 
-The form posts to `app/api/contact/route.ts`, which currently just
-validates the input and `console.log`s it — nothing is emailed yet.
-Wire it to a real provider, for example [Resend](https://resend.com):
+The form posts to `app/api/contact/route.ts`, which is already wired to
+send an email via [Resend](https://resend.com) — it just needs an API key.
 
-```bash
-npm install resend
-```
+**Setup (5 minutes, free):**
 
-```ts
-// app/api/contact/route.ts
-import { Resend } from "resend";
-const resend = new Resend(process.env.RESEND_API_KEY);
+1. Create a free account at [resend.com](https://resend.com) — no credit
+   card required, 100 emails/day on the free tier.
+2. In the Resend dashboard, go to **API Keys** → **Create API Key**, and
+   copy it.
+3. In Vercel: your project → **Settings → Environment Variables** → add
+   `RESEND_API_KEY` = *(the key you copied)* → Save.
+4. Redeploy (Vercel → Deployments → ⋯ → Redeploy), or just push any new
+   commit.
 
-await resend.emails.send({
-  from: "GD Solutions <site@yourdomain.com>",
-  to: "hello@gdsolutions.example",
-  subject: `New inquiry from ${name}`,
-  text: message,
-});
-```
+That's it — submissions will now arrive by email at
+`business.gdsolutions@gmail.com` (change `NOTIFY_EMAIL` in the route file
+to send elsewhere). Until the API key is set, submissions are still
+accepted and visible in Vercel → your project → **Logs**, but no email
+goes out.
 
-Add `RESEND_API_KEY` (or your provider's key) as an environment variable
-in Vercel — see below. Any provider works the same way (SendGrid,
-Postmark, or a CRM webhook).
+**Optional next step:** the email currently sends *from*
+`onboarding@resend.dev` (Resend's shared test address, which works
+immediately with no setup). Once you verify your own domain on
+resend.com, update the `from` field in `app/api/contact/route.ts` to
+something like `"GD Solutions <enquiries@gdsolutions.com>"` so it sends
+from your own domain instead.
 
 ## 4. Deploy on Vercel
 
