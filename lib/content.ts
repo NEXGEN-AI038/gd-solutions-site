@@ -15,7 +15,7 @@ export const site = {
   // WhatsApp numbers for enquiries — displayed and linked as click-to-chat.
   whatsapp: [
     { label: "+91 98318 22045", number: "919831822045" },
-    { label: "+91 98300 08641", number: "919830008641" },
+    { label: "+91 98309 08641", number: "919830908641" },
   ],
   social: {
     linkedin: "https://linkedin.com/company/gdsolutions",
