@@ -6,7 +6,7 @@ export const site = {
   name: "GD Solutions",
   tagline: "AI · Technology · Digital Innovation",
   description:
-    "GD Solutions empowers businesses and individuals through AI automation, IT infrastructure, BMS (Building Management System), Business Process Outsourcing interview assistance and beginner-friendly AI, cybersecurity and OSINT training.",
+    "GD Solutions empowers businesses and individuals through AI automation, IT infrastructure, surveillance systems, website designing and hosting, Business Process Outsourcing interview assistance and beginner-friendly AI, cybersecurity and OSINT training.",
   email: "business.gdsolutions@gmail.com",
   address: {
     line1: "5th Floor, RDB Boulevard, Plot-K1, Block EP & GP",
@@ -55,7 +55,7 @@ export const hero = {
 export const about = {
   eyebrow: "About GD Solutions",
   heading: "Technology. Automation. Growth.",
-  body: "GD Solutions is focused on helping businesses and individuals leverage the power of modern technology. We combine AI automation, IT expertise, building management systems, infrastructure solutions, and practical technology training to create meaningful and efficient solutions.",
+  body: "GD Solutions is focused on helping businesses and individuals leverage the power of modern technology. We combine AI automation, IT expertise, surveillance systems, infrastructure solutions, web design and hosting, and practical technology training to create meaningful and efficient solutions.",
   values: [
     {
       title: "Innovation",
@@ -88,8 +88,9 @@ export const about = {
 export const ticker = [
   "AI Automation",
   "IT Infrastructure Projects",
-  "BMS (Building Management System)",
+  "Surveillance Systems (CCTV)",
   "IT Services",
+  "Website Designing & Hosting",
   "Business Process Outsourcing Interview Assistance",
   "AI Training",
   "Cybersecurity Training",
@@ -106,7 +107,7 @@ export const aiNetwork = {
   nodes: [
     "AI Automation",
     "IT Infrastructure",
-    "BMS",
+    "Surveillance",
     "Cybersecurity",
     "OSINT",
     "Training",
@@ -130,8 +131,8 @@ export const services = {
     },
     {
       code: "03",
-      title: "BMS (Building Management System)",
-      body: "Smart building management systems for monitoring and controlling lighting, HVAC, security, and other facility operations efficiently.",
+      title: "Surveillance Systems",
+      body: "End-to-end installation and maintenance of CCTV camera systems for homes, offices and facilities.",
     },
     {
       code: "04",
@@ -140,6 +141,11 @@ export const services = {
     },
     {
       code: "05",
+      title: "Website Designing & Hosting",
+      body: "Custom website design, development and reliable hosting to give your business a strong online presence.",
+    },
+    {
+      code: "06",
       title: "Business Process Outsourcing Interview Assistance",
       body: "Helping aspiring professionals prepare confidently for Business Process Outsourcing and customer service interviews.",
     },
@@ -232,7 +238,7 @@ export const whyUs = {
     },
     {
       title: "Technology Expertise",
-      body: "Experience across automation, IT services, infrastructure, and building management systems.",
+      body: "Experience across automation, IT services, infrastructure, surveillance systems, and web design.",
     },
     {
       title: "Continuous Learning",
@@ -360,8 +366,9 @@ export const contact = {
   serviceOptions: [
     "AI Automation",
     "IT Infrastructure Projects",
-    "BMS (Building Management System)",
+    "Surveillance Systems (CCTV)",
     "IT Services",
+    "Website Designing & Hosting",
     "Business Process Outsourcing Interview Assistance",
     "AI Course",
     "Cybersecurity Course",

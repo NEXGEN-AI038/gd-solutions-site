@@ -123,3 +123,49 @@ export function ShieldIcon(props: SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
+
+export function CameraIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base(props)}>
+      <rect x="2.5" y="7" width="14" height="10" rx="2" />
+      <path d="M16.5 10.5 21 8v8l-4.5-2.5" />
+      <circle cx="9.5" cy="12" r="2.5" />
+    </svg>
+  );
+}
+
+export function GlobeIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base(props)}>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M3 12h18M12 3c2.5 2.5 4 5.8 4 9s-1.5 6.5-4 9c-2.5-2.5-4-5.8-4-9s1.5-6.5 4-9Z" />
+    </svg>
+  );
+}
+
+export function BrainIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base(props)}>
+      <path d="M9 4.5a2.5 2.5 0 0 0-2.5 2.5v.2A2.5 2.5 0 0 0 4 9.5v1a2.5 2.5 0 0 0 1 2 2.5 2.5 0 0 0 1.5 4.3 2.5 2.5 0 0 0 2.5 2.2h1V4.5H9Z" />
+      <path d="M15 4.5a2.5 2.5 0 0 1 2.5 2.5v.2A2.5 2.5 0 0 1 20 9.5v1a2.5 2.5 0 0 1-1 2 2.5 2.5 0 0 1-1.5 4.3 2.5 2.5 0 0 1-2.5 2.2h-1V4.5h1Z" />
+    </svg>
+  );
+}
+
+export function LockIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base(props)}>
+      <rect x="4.5" y="10.5" width="15" height="10" rx="2" />
+      <path d="M8 10.5V7a4 4 0 0 1 8 0v3.5" />
+    </svg>
+  );
+}
+
+export function SearchIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base(props)}>
+      <circle cx="10.5" cy="10.5" r="6.5" />
+      <path d="m20 20-4.8-4.8" />
+    </svg>
+  );
+}

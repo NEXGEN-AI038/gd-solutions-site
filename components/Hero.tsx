@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { hero } from "@/lib/content";
+import { hero, about } from "@/lib/content";
 import Reveal from "./Reveal";
 
 const ACCENTS = ["#0D9488", "#F1650B", "#7C6FF0", "#0EA5E9"];
@@ -89,7 +89,7 @@ export default function Hero() {
 
           <Reveal delay={200}>
             <div className="mt-10 flex flex-wrap items-center gap-4">
-              <a href={hero.ctaPrimary.href} className="btn-primary">
+              <a href={hero.ctaPrimary.href} className="btn-primary animate-cta-pulse">
                 {hero.ctaPrimary.label}
               </a>
               <a href={hero.ctaSecondary.href} className="btn-ghost">
@@ -98,7 +98,21 @@ export default function Hero() {
             </div>
           </Reveal>
 
-          <div className="mt-16 flex flex-wrap gap-x-8 gap-y-3 border-t border-line pt-6">
+          <Reveal delay={300}>
+            <div className="mt-10 flex flex-wrap gap-x-10 gap-y-3">
+              {about.stats.slice(0, 3).map((s) => (
+                <div key={s.label}>
+                  <span className="font-display text-2xl font-semibold text-paper">
+                    {s.value}
+                    <span className="text-signal">{s.suffix}</span>
+                  </span>
+                  <p className="font-mono text-[11px] uppercase tracking-wider text-muted">{s.label}</p>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+
+          <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 border-t border-line pt-6">
             {hero.tags.map((tag, i) => (
               <div
                 key={tag}

@@ -1,7 +1,10 @@
 import { training } from "@/lib/content";
 import Reveal from "./Reveal";
+import { BrainIcon, LockIcon, SearchIcon } from "./Icons";
 
+const ICONS = [BrainIcon, LockIcon, SearchIcon];
 const ACCENT_TOP_BORDER = ["border-t-signal", "border-t-warm", "border-t-violet"];
+const ACCENT_BG = ["bg-signal/10 text-signal", "bg-warm/10 text-warm", "bg-violet/10 text-violet"];
 const ACCENT_DOT = ["bg-signal", "bg-warm", "bg-violet"];
 const ACCENT_TEXT = ["text-signal", "text-warm", "text-violet"];
 
@@ -17,12 +20,17 @@ export default function Training() {
 
         <div className="mt-14 grid grid-cols-1 gap-6 lg:grid-cols-3">
           {training.courses.map((course, i) => {
+            const Icon = ICONS[i % ICONS.length];
             const topBorder = ACCENT_TOP_BORDER[i % ACCENT_TOP_BORDER.length];
+            const iconBg = ACCENT_BG[i % ACCENT_BG.length];
             const dot = ACCENT_DOT[i % ACCENT_DOT.length];
             const text = ACCENT_TEXT[i % ACCENT_TEXT.length];
             return (
               <Reveal key={course.title} delay={i * 100}>
                 <div className={`card flex h-full flex-col border-t-2 ${topBorder}`}>
+                  <span className={`mb-4 flex h-12 w-12 items-center justify-center rounded-full ${iconBg}`}>
+                    <Icon className="h-6 w-6" />
+                  </span>
                   <h3 className="font-display text-lg font-medium text-paper">{course.title}</h3>
                   <ul className="mt-4 flex-1 space-y-2">
                     {course.topics.map((topic) => (

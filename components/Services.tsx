@@ -1,8 +1,8 @@
 import { services } from "@/lib/content";
 import Reveal from "./Reveal";
-import { BoltIcon, ServerIcon, BuildingIcon, WrenchIcon, HeadsetIcon } from "./Icons";
+import { BoltIcon, ServerIcon, CameraIcon, WrenchIcon, GlobeIcon, HeadsetIcon } from "./Icons";
 
-const ICONS = [BoltIcon, ServerIcon, BuildingIcon, WrenchIcon, HeadsetIcon];
+const ICONS = [BoltIcon, ServerIcon, CameraIcon, WrenchIcon, GlobeIcon, HeadsetIcon];
 
 // Full class names listed literally so Tailwind's scanner picks them up
 // (it can't detect classes built by concatenating strings at runtime).

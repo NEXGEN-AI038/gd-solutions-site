@@ -65,6 +65,10 @@ const config: Config = {
         "dash-flow": {
           to: { strokeDashoffset: "-32" },
         },
+        "cta-pulse": {
+          "0%, 100%": { boxShadow: "0 0 0 0 rgba(13,148,136,0.35)" },
+          "50%": { boxShadow: "0 0 0 10px rgba(13,148,136,0)" },
+        },
       },
       animation: {
         "pulse-trace": "pulse-trace 2.4s ease-in-out infinite",
@@ -73,6 +77,7 @@ const config: Config = {
         "node-pulse": "node-pulse 2.6s ease-in-out infinite",
         "hub-glow": "hub-glow 3.2s ease-in-out infinite",
         "dash-flow": "dash-flow 1.6s linear infinite",
+        "cta-pulse": "cta-pulse 2.4s ease-out infinite",
       },
     },
   },
