@@ -42,7 +42,7 @@ export const hero = {
   headline: "Transforming ideas into intelligent systems.",
   sub: "From AI-powered automation and IT infrastructure to technology services and professional training, GD Solutions helps businesses and individuals move confidently into the digital future.",
   ctaPrimary: { label: "Explore Services", href: "#services" },
-  ctaSecondary: { label: "Get Started", href: "#contact" },
+  ctaSecondary: { label: "Book a Free Consultation", href: "#contact" },
   tags: ["AI Automation", "IT Infrastructure", "Cyber & OSINT Training"],
   // Once you have a real product screenshot or explainer-video clip, drop
   // the file in /public and switch this to show it instead of the
@@ -138,7 +138,7 @@ export const services = {
     {
       code: "04",
       title: "IT Services",
-      body: "Flexible technology services to support organizations with their day-to-day IT requirements.",
+      body: "Remote IT support, desktop and laptop support, Microsoft 365 support, network troubleshooting, server support and IT consulting — flexible day-to-day support for your organization.",
     },
     {
       code: "05",
@@ -230,28 +230,31 @@ export const process = {
 
 export const whyUs = {
   eyebrow: "Why Us",
-  heading: "Why GD Solutions?",
+  heading: "Why businesses choose GD Solutions",
   points: [
-    { title: "Innovation", body: "Modern solutions powered by AI and technology." },
     {
-      title: "Practical Approach",
-      body: "Solutions focused on real-world business needs.",
+      title: "Faster Workflow Automation",
+      body: "We turn manual, repetitive processes into automated workflows that save hours every week.",
     },
     {
-      title: "Technology Expertise",
-      body: "Experience across automation, IT services, infrastructure, surveillance systems, and web design.",
+      title: "Practical AI Implementation",
+      body: "AI applied to real business problems, not buzzwords — built to solve what's actually slowing you down.",
     },
     {
-      title: "Continuous Learning",
-      body: "Helping individuals build relevant technology skills.",
+      title: "End-to-End Technology Support",
+      body: "From infrastructure and surveillance to websites and IT services, one team handles it all.",
     },
     {
-      title: "Flexible Solutions",
-      body: "Services designed around different business and individual requirements.",
+      title: "Solutions Built Around Your Workflow",
+      body: "Every automation and system we build is designed around how your business actually operates.",
     },
     {
-      title: "Customer-Focused",
-      body: "Clear communication and a solution-oriented approach.",
+      title: "Personalized Consultation",
+      body: "We start by understanding your specific requirements before recommending a solution.",
+    },
+    {
+      title: "Local Support, Modern Expertise",
+      body: "Kolkata-based support backed by current AI, automation and infrastructure expertise.",
     },
   ],
 };
@@ -326,7 +329,7 @@ export const caseStudies = {
 export const reviews = {
   eyebrow: "Reviews",
   heading: "What clients and learners say",
-  sub: "Real feedback from businesses we've automated and learners we've trained — replace with your own as they come in.",
+  sub: "Real feedback from the businesses we've automated for and the learners we've trained.",
   ctaLabel: "Leave us a review",
   items: [
     {
@@ -356,7 +359,7 @@ export const reviews = {
 export const finalCta = {
   heading: "Ready to transform your ideas into solutions?",
   body: "Whether you're looking to automate your business, improve your IT operations, implement technology solutions, or start your journey into AI and cybersecurity, GD Solutions is ready to help.",
-  ctaPrimary: { label: "Talk to Us", href: "#contact" },
+  ctaPrimary: { label: "Book a Free Consultation", href: "#contact" },
   ctaSecondary: { label: "Explore Services", href: "#services" },
 };
 

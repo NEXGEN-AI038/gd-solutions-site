@@ -1,8 +1,8 @@
 import { whyUs } from "@/lib/content";
 import Reveal from "./Reveal";
-import { SparkleIcon, TargetIcon, LayersIcon, BookIcon, ShuffleIcon, UsersIcon } from "./Icons";
+import { BoltIcon, BrainIcon, WrenchIcon, LayersIcon, UsersIcon, PinIcon } from "./Icons";
 
-const ICONS = [SparkleIcon, TargetIcon, LayersIcon, BookIcon, ShuffleIcon, UsersIcon];
+const ICONS = [BoltIcon, BrainIcon, WrenchIcon, LayersIcon, UsersIcon, PinIcon];
 const ACCENT_BG = [
   "bg-signal/10 text-signal",
   "bg-warm/10 text-warm",
