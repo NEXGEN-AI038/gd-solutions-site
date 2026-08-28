@@ -69,6 +69,18 @@ const config: Config = {
           "0%, 100%": { boxShadow: "0 0 0 0 rgba(13,148,136,0.35)" },
           "50%": { boxShadow: "0 0 0 10px rgba(13,148,136,0)" },
         },
+        "orbit-spin": {
+          from: { transform: "rotate(0deg)" },
+          to: { transform: "rotate(360deg)" },
+        },
+        "orbit-spin-reverse": {
+          from: { transform: "rotate(360deg)" },
+          to: { transform: "rotate(0deg)" },
+        },
+        float: {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-6px)" },
+        },
       },
       animation: {
         "pulse-trace": "pulse-trace 2.4s ease-in-out infinite",
@@ -78,6 +90,9 @@ const config: Config = {
         "hub-glow": "hub-glow 3.2s ease-in-out infinite",
         "dash-flow": "dash-flow 1.6s linear infinite",
         "cta-pulse": "cta-pulse 2.4s ease-out infinite",
+        "orbit-spin": "orbit-spin 36s linear infinite",
+        "orbit-spin-reverse": "orbit-spin-reverse 36s linear infinite",
+        float: "float 4s ease-in-out infinite",
       },
     },
   },

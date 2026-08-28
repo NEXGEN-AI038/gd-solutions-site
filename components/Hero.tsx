@@ -15,17 +15,76 @@ function HeroIllustration() {
   ];
   return (
     <svg viewBox="0 0 400 340" className="h-auto w-full max-w-md" role="presentation">
-      {nodes.map((n, i) => (
-        <line key={i} x1={200} y1={170} x2={n.x} y2={n.y} stroke={n.color} strokeOpacity={0.35} strokeWidth={2} />
-      ))}
-      <circle cx={200} cy={170} r={44} fill="#F7F8FA" stroke="#0D9488" strokeWidth={2} />
-      <circle cx={200} cy={170} r={16} fill="#0D9488" opacity={0.8} />
-      {nodes.map((n, i) => (
-        <g key={i}>
-          <circle cx={n.x} cy={n.y} r={26} fill="#F7F8FA" stroke={n.color} strokeWidth={2} />
-          <circle cx={n.x} cy={n.y} r={8} fill={n.color} className="animate-node-pulse" style={{ transformOrigin: `${n.x}px ${n.y}px` }} />
+      {/* faint decorative ring, drifting the opposite direction for depth */}
+      <g className="motion-safe:animate-orbit-spin-reverse" style={{ transformOrigin: "200px 170px" }}>
+        <circle
+          cx={200}
+          cy={170}
+          r={150}
+          fill="none"
+          stroke="#0D9488"
+          strokeOpacity={0.12}
+          strokeWidth={1}
+          strokeDasharray="2 7"
+        />
+      </g>
+
+      {/* orbiting node cluster — nodes slowly circle the hub */}
+      <g className="motion-safe:animate-orbit-spin" style={{ transformOrigin: "200px 170px" }}>
+        {nodes.map((n, i) => (
+          <line
+            key={`line-${i}`}
+            x1={200}
+            y1={170}
+            x2={n.x}
+            y2={n.y}
+            stroke={n.color}
+            strokeOpacity={0.45}
+            strokeWidth={2}
+            strokeDasharray="5 8"
+            strokeLinecap="round"
+            className="motion-safe:animate-dash-flow"
+          />
+        ))}
+        <g className="motion-reduce:hidden">
+          {nodes.map((n, i) => (
+            <circle key={`pulse-${i}`} r={3.5} fill={n.color}>
+              <animateMotion
+                dur="2.4s"
+                begin={`${i * 0.4}s`}
+                repeatCount="indefinite"
+                path={`M200,170 L${n.x},${n.y}`}
+              />
+              <animate
+                attributeName="opacity"
+                values="0;1;1;0"
+                keyTimes="0;0.15;0.85;1"
+                dur="2.4s"
+                begin={`${i * 0.4}s`}
+                repeatCount="indefinite"
+              />
+            </circle>
+          ))}
         </g>
-      ))}
+        {nodes.map((n, i) => (
+          <g key={`node-${i}`}>
+            <circle cx={n.x} cy={n.y} r={26} fill="#F7F8FA" stroke={n.color} strokeWidth={2} />
+            <circle
+              cx={n.x}
+              cy={n.y}
+              r={8}
+              fill={n.color}
+              className="animate-node-pulse"
+              style={{ transformOrigin: `${n.x}px ${n.y}px` }}
+            />
+          </g>
+        ))}
+      </g>
+
+      {/* hub — stays upright while everything orbits around it */}
+      <circle cx={200} cy={170} r={54} fill="#0D9488" className="animate-hub-glow" style={{ transformOrigin: "200px 170px" }} />
+      <circle cx={200} cy={170} r={44} fill="#F7F8FA" stroke="#0D9488" strokeWidth={2} />
+      <circle cx={200} cy={170} r={16} fill="#0D9488" opacity={0.85} />
     </svg>
   );
 }
@@ -125,7 +184,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="hidden justify-self-center lg:block">
+        <div className="hidden justify-self-center motion-safe:animate-float lg:block">
           <HeroMedia />
         </div>
       </div>
