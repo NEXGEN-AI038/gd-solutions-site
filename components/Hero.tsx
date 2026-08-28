@@ -2,28 +2,29 @@ import Image from "next/image";
 import { hero, about } from "@/lib/content";
 import Reveal from "./Reveal";
 
-const ACCENTS = ["#0D9488", "#F1650B", "#7C6FF0", "#0EA5E9"];
+const ACCENTS = ["#7C6FF0", "#0D9488", "#F1650B", "#0EA5E9"];
 
 function HeroIllustration() {
-  // Small original hub illustration in the 4-color accent rotation —
-  // swap for a real product screenshot any time via hero.media in content.ts.
+  // Original hub illustration, violet-led for contrast against the white
+  // page — swap for a real product screenshot any time via hero.media in
+  // content.ts.
   const nodes = [
-    { x: 70, y: 70, color: ACCENTS[0] },
-    { x: 330, y: 60, color: ACCENTS[1] },
-    { x: 350, y: 260, color: ACCENTS[2] },
+    { x: 70, y: 70, color: ACCENTS[1] },
+    { x: 330, y: 60, color: ACCENTS[2] },
+    { x: 350, y: 260, color: ACCENTS[0] },
     { x: 60, y: 270, color: ACCENTS[3] },
   ];
   return (
-    <svg viewBox="0 0 400 340" className="h-auto w-full max-w-md" role="presentation">
+    <svg viewBox="0 0 400 340" className="h-auto w-full" role="presentation">
       {/* faint decorative ring, drifting the opposite direction for depth */}
       <g className="motion-safe:animate-orbit-spin-reverse" style={{ transformOrigin: "200px 170px" }}>
         <circle
           cx={200}
           cy={170}
-          r={150}
+          r={155}
           fill="none"
-          stroke="#0D9488"
-          strokeOpacity={0.12}
+          stroke="#7C6FF0"
+          strokeOpacity={0.16}
           strokeWidth={1}
           strokeDasharray="2 7"
         />
@@ -40,7 +41,7 @@ function HeroIllustration() {
             y2={n.y}
             stroke={n.color}
             strokeOpacity={0.45}
-            strokeWidth={2}
+            strokeWidth={2.5}
             strokeDasharray="5 8"
             strokeLinecap="round"
             className="motion-safe:animate-dash-flow"
@@ -48,7 +49,7 @@ function HeroIllustration() {
         ))}
         <g className="motion-reduce:hidden">
           {nodes.map((n, i) => (
-            <circle key={`pulse-${i}`} r={3.5} fill={n.color}>
+            <circle key={`pulse-${i}`} r={4} fill={n.color}>
               <animateMotion
                 dur="2.4s"
                 begin={`${i * 0.4}s`}
@@ -68,11 +69,11 @@ function HeroIllustration() {
         </g>
         {nodes.map((n, i) => (
           <g key={`node-${i}`}>
-            <circle cx={n.x} cy={n.y} r={26} fill="#F7F8FA" stroke={n.color} strokeWidth={2} />
+            <circle cx={n.x} cy={n.y} r={30} fill="#FFFFFF" stroke={n.color} strokeWidth={2.5} />
             <circle
               cx={n.x}
               cy={n.y}
-              r={8}
+              r={9}
               fill={n.color}
               className="animate-node-pulse"
               style={{ transformOrigin: `${n.x}px ${n.y}px` }}
@@ -81,10 +82,10 @@ function HeroIllustration() {
         ))}
       </g>
 
-      {/* hub — stays upright while everything orbits around it */}
-      <circle cx={200} cy={170} r={54} fill="#0D9488" className="animate-hub-glow" style={{ transformOrigin: "200px 170px" }} />
-      <circle cx={200} cy={170} r={44} fill="#F7F8FA" stroke="#0D9488" strokeWidth={2} />
-      <circle cx={200} cy={170} r={16} fill="#0D9488" opacity={0.85} />
+      {/* hub — violet, stays upright while everything orbits around it */}
+      <circle cx={200} cy={170} r={62} fill="#7C6FF0" className="animate-hub-glow" style={{ transformOrigin: "200px 170px" }} />
+      <circle cx={200} cy={170} r={50} fill="#FFFFFF" stroke="#7C6FF0" strokeWidth={2.5} />
+      <circle cx={200} cy={170} r={18} fill="#7C6FF0" opacity={0.9} />
     </svg>
   );
 }
@@ -184,8 +185,13 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="hidden justify-self-center motion-safe:animate-float lg:block">
-          <HeroMedia />
+        <div className="relative hidden justify-self-center lg:block">
+          {/* large violet halo, filling the column for strong contrast on white */}
+          <div className="pointer-events-none absolute -inset-16 -z-10 rounded-full bg-violet/20 blur-[90px]" />
+          <div className="pointer-events-none absolute -inset-4 -z-10 rounded-full bg-signal/10 blur-3xl" />
+          <div className="w-full max-w-lg motion-safe:animate-float xl:max-w-xl">
+            <HeroMedia />
+          </div>
         </div>
       </div>
     </section>
