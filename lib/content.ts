@@ -27,14 +27,14 @@ export const site = {
 };
 
 export const nav = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Case Studies", href: "#case-studies" },
-  { label: "Training", href: "#training" },
-  { label: "Why Us", href: "#why" },
-  { label: "Reviews", href: "#reviews" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/#home" },
+  { label: "About", href: "/#about" },
+  { label: "Services", href: "/#services" },
+  { label: "Case Studies", href: "/#case-studies" },
+  { label: "Training", href: "/#training" },
+  { label: "Why Us", href: "/#why" },
+  { label: "Reviews", href: "/#reviews" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export const hero = {
