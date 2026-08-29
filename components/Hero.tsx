@@ -1,27 +1,40 @@
 import Image from "next/image";
 import { hero, about } from "@/lib/content";
 import Reveal from "./Reveal";
+import { BoltIcon, ServerIcon, CameraIcon, GlobeIcon, HeadsetIcon, WrenchIcon } from "./Icons";
 
 const ACCENTS = ["#7C6FF0", "#0D9488", "#F1650B", "#0EA5E9"];
 
+const CX = 200;
+const CY = 200;
+const R = 140;
+
+function toXY(angleDeg: number) {
+  const rad = (angleDeg * Math.PI) / 180;
+  return { x: CX + R * Math.cos(rad), y: CY + R * Math.sin(rad) };
+}
+
+const SERVICE_NODES = [
+  { Icon: BoltIcon, color: "#0D9488" }, // AI Automation
+  { Icon: ServerIcon, color: "#F1650B" }, // IT Infrastructure
+  { Icon: CameraIcon, color: "#0EA5E9" }, // Surveillance
+  { Icon: GlobeIcon, color: "#7C6FF0" }, // Website Design
+  { Icon: HeadsetIcon, color: "#0D9488" }, // BPO
+  { Icon: WrenchIcon, color: "#F1650B" }, // IT Services
+].map((n, i) => ({ ...n, ...toXY(-90 + (360 / 6) * i) }));
+
 function HeroIllustration() {
-  // Original hub illustration, violet-led for contrast against the white
-  // page — swap for a real product screenshot any time via hero.media in
-  // content.ts.
-  const nodes = [
-    { x: 70, y: 70, color: ACCENTS[1] },
-    { x: 330, y: 60, color: ACCENTS[2] },
-    { x: 350, y: 260, color: ACCENTS[0] },
-    { x: 60, y: 270, color: ACCENTS[3] },
-  ];
+  // Orbiting service-icon cluster around a pulsing hub — a square viewBox
+  // matched to an aspect-square container so it can never get cropped.
+  // Swap for a real product screenshot any time via hero.media in content.ts.
   return (
-    <svg viewBox="0 0 400 340" className="h-auto w-full" role="presentation">
+    <svg viewBox="0 0 400 400" className="h-full w-full" role="presentation">
       {/* faint decorative ring, drifting the opposite direction for depth */}
-      <g className="motion-safe:animate-orbit-spin-reverse" style={{ transformOrigin: "200px 170px" }}>
+      <g className="motion-safe:animate-orbit-spin-reverse" style={{ transformOrigin: "200px 200px" }}>
         <circle
-          cx={200}
-          cy={170}
-          r={155}
+          cx={CX}
+          cy={CY}
+          r={175}
           fill="none"
           stroke="#7C6FF0"
           strokeOpacity={0.16}
@@ -30,62 +43,72 @@ function HeroIllustration() {
         />
       </g>
 
-      {/* orbiting node cluster — nodes slowly circle the hub */}
-      <g className="motion-safe:animate-orbit-spin" style={{ transformOrigin: "200px 170px" }}>
-        {nodes.map((n, i) => (
+      {/* orbiting service icons — slowly circle the hub */}
+      <g className="motion-safe:animate-orbit-spin" style={{ transformOrigin: "200px 200px" }}>
+        {SERVICE_NODES.map((n, i) => (
           <line
             key={`line-${i}`}
-            x1={200}
-            y1={170}
+            x1={CX}
+            y1={CY}
             x2={n.x}
             y2={n.y}
             stroke={n.color}
-            strokeOpacity={0.45}
-            strokeWidth={2.5}
+            strokeOpacity={0.4}
+            strokeWidth={2}
             strokeDasharray="5 8"
             strokeLinecap="round"
             className="motion-safe:animate-dash-flow"
           />
         ))}
         <g className="motion-reduce:hidden">
-          {nodes.map((n, i) => (
-            <circle key={`pulse-${i}`} r={4} fill={n.color}>
+          {SERVICE_NODES.map((n, i) => (
+            <circle key={`pulse-${i}`} r={3.5} fill={n.color}>
               <animateMotion
                 dur="2.4s"
-                begin={`${i * 0.4}s`}
+                begin={`${i * 0.35}s`}
                 repeatCount="indefinite"
-                path={`M200,170 L${n.x},${n.y}`}
+                path={`M${CX},${CY} L${n.x},${n.y}`}
               />
               <animate
                 attributeName="opacity"
                 values="0;1;1;0"
                 keyTimes="0;0.15;0.85;1"
                 dur="2.4s"
-                begin={`${i * 0.4}s`}
+                begin={`${i * 0.35}s`}
                 repeatCount="indefinite"
               />
             </circle>
           ))}
         </g>
-        {nodes.map((n, i) => (
+        {SERVICE_NODES.map((n, i) => (
           <g key={`node-${i}`}>
-            <circle cx={n.x} cy={n.y} r={30} fill="#FFFFFF" stroke={n.color} strokeWidth={2.5} />
-            <circle
-              cx={n.x}
-              cy={n.y}
-              r={9}
-              fill={n.color}
-              className="animate-node-pulse"
-              style={{ transformOrigin: `${n.x}px ${n.y}px` }}
+            <rect
+              x={n.x - 24}
+              y={n.y - 24}
+              width={48}
+              height={48}
+              rx={14}
+              fill="#FFFFFF"
+              stroke={n.color}
+              strokeWidth={2}
             />
+            <foreignObject x={n.x - 13} y={n.y - 13} width={26} height={26}>
+              <div className="flex h-full w-full items-center justify-center">
+                <n.Icon style={{ color: n.color }} className="h-4 w-4" />
+              </div>
+            </foreignObject>
           </g>
         ))}
       </g>
 
       {/* hub — violet, stays upright while everything orbits around it */}
-      <circle cx={200} cy={170} r={62} fill="#7C6FF0" className="animate-hub-glow" style={{ transformOrigin: "200px 170px" }} />
-      <circle cx={200} cy={170} r={50} fill="#FFFFFF" stroke="#7C6FF0" strokeWidth={2.5} />
-      <circle cx={200} cy={170} r={18} fill="#7C6FF0" opacity={0.9} />
+      <circle cx={CX} cy={CY} r={64} fill="#7C6FF0" className="animate-hub-glow" style={{ transformOrigin: "200px 200px" }} />
+      <circle cx={CX} cy={CY} r={52} fill="#FFFFFF" stroke="#7C6FF0" strokeWidth={2.5} />
+      <foreignObject x={CX - 28} y={CY - 28} width={56} height={56}>
+        <div className="flex h-full w-full items-center justify-center">
+          <Image src="/logo.png" alt="GD Solutions" width={40} height={40} />
+        </div>
+      </foreignObject>
     </svg>
   );
 }
@@ -94,15 +117,21 @@ function HeroMedia() {
   const { media } = hero;
   if (media.type === "image" && media.src) {
     return (
-      <div className="overflow-hidden rounded-lg border border-line bg-panel p-2 shadow-2xl shadow-black/40">
-        <Image src={media.src} alt={media.alt ?? "GD Solutions"} width={520} height={420} className="rounded-md" />
+      <div className="h-full w-full overflow-hidden rounded-lg border border-line bg-panel p-2 shadow-2xl shadow-black/40">
+        <Image
+          src={media.src}
+          alt={media.alt ?? "GD Solutions"}
+          width={520}
+          height={520}
+          className="h-full w-full rounded-md object-cover"
+        />
       </div>
     );
   }
   if (media.type === "video" && media.src) {
     return (
-      <div className="overflow-hidden rounded-lg border border-line bg-panel p-2 shadow-2xl shadow-black/40">
-        <video src={media.src} controls className="w-full rounded-md" />
+      <div className="h-full w-full overflow-hidden rounded-lg border border-line bg-panel p-2 shadow-2xl shadow-black/40">
+        <video src={media.src} controls className="h-full w-full rounded-md object-cover" />
       </div>
     );
   }
@@ -187,9 +216,9 @@ export default function Hero() {
 
         <div className="relative hidden justify-self-center lg:block">
           {/* large violet halo, filling the column for strong contrast on white */}
-          <div className="pointer-events-none absolute -inset-16 -z-10 rounded-full bg-violet/20 blur-[90px]" />
+          <div className="pointer-events-none absolute -inset-12 -z-10 rounded-full bg-violet/20 blur-[90px]" />
           <div className="pointer-events-none absolute -inset-4 -z-10 rounded-full bg-signal/10 blur-3xl" />
-          <div className="w-full max-w-lg motion-safe:animate-float xl:max-w-xl">
+          <div className="aspect-square w-full max-w-md motion-safe:animate-float xl:max-w-lg">
             <HeroMedia />
           </div>
         </div>
