@@ -34,10 +34,18 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="container-page mt-10 border-t border-line pt-6">
+      <div className="container-page mt-10 flex flex-col gap-3 border-t border-line pt-6 sm:flex-row sm:items-center sm:justify-between">
         <p className="font-mono text-xs text-muted">
           © {site.year} {site.name}. All rights reserved.
         </p>
+        <div className="flex gap-5">
+          <a href="/privacy" className="font-mono text-xs text-muted hover:text-signal">
+            Privacy Policy
+          </a>
+          <a href="/terms" className="font-mono text-xs text-muted hover:text-signal">
+            Terms of Service
+          </a>
+        </div>
       </div>
     </footer>
   );

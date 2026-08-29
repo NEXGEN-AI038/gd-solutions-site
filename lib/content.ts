@@ -9,7 +9,7 @@ export const site = {
     "GD Solutions empowers businesses and individuals through AI automation, IT infrastructure, surveillance systems, website designing and hosting, Business Process Outsourcing interview assistance and beginner-friendly AI, cybersecurity and OSINT training.",
   email: "business.gdsolutions@gmail.com",
   address: {
-    line1: "5th Floor, RDB Boulevard, Plot-K1, Block EP & GP",
+    line1: "5th Floor, RDB Boulevard, Plot-K1, Block EP & GP,",
     line2: "Sector V, Kolkata - 700091",
   },
   // WhatsApp numbers for enquiries — displayed and linked as click-to-chat.
