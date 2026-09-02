@@ -49,7 +49,18 @@ export const hero = {
   // built-in illustration:
   //   image → { type: "image", src: "/showcase/dashboard.png", alt: "..." }
   //   video → { type: "video", src: "/showcase/demo.mp4" }
-  media: { type: "illustration" as "illustration" | "image" | "video", src: "", alt: "" },
+   media: {
+    type: "carousel" as "illustration" | "image" | "video" | "carousel",
+    src: "",
+    alt: "",
+    images: [
+      { src: "/hero/network-globe.webp", alt: "Global connected network" },
+      { src: "/hero/ai-mind-profile.webp", alt: "AI-augmented human intelligence" },
+      { src: "/hero/ai-city-hand.webp", alt: "AI technology over a city skyline" },
+      { src: "/hero/ai-circuit-head.webp", alt: "Circuit-board rendering of a human head" },
+      { src: "/hero/code-matrix.webp", alt: "Streaming code and data" },
+    ],
+  },
 };
 
 export const about = {
@@ -356,6 +367,24 @@ export const reviews = {
   ],
 };
 
+// Technology categories shown in the "Technology We Use" strip — edit
+// these to name your actual specific tools/vendors once confirmed
+// (e.g. swap "Workflow Automation" for "n8n" or "Zapier" by name).
+export const techStack = {
+  eyebrow: "Our Stack",
+  heading: "Technology we work with",
+  sub: "The categories of tools and platforms behind our automation, infrastructure and web work.",
+  items: [
+    "Artificial Intelligence & LLMs",
+    "Workflow Automation",
+    "Cloud Infrastructure",
+    "Web Development",
+    "Cybersecurity Tools",
+    "OSINT & Data Research",
+    "CCTV & Surveillance Tech",
+    "Business Communication",
+  ],
+};
 export const finalCta = {
   heading: "Ready to transform your ideas into solutions?",
   body: "Whether you're looking to automate your business, improve your IT operations, implement technology solutions, or start your journey into AI and cybersecurity, GD Solutions is ready to help.",
