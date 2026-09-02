@@ -44,12 +44,12 @@ export const hero = {
   ctaPrimary: { label: "Explore Services", href: "#services" },
   ctaSecondary: { label: "Book a Free Consultation", href: "#contact" },
   tags: ["AI Automation", "IT Infrastructure", "Cyber & OSINT Training"],
-  // Once you have a real product screenshot or explainer-video clip, drop
-  // the file in /public and switch this to show it instead of the
-  // built-in illustration:
-  //   image → { type: "image", src: "/showcase/dashboard.png", alt: "..." }
-  //   video → { type: "video", src: "/showcase/demo.mp4" }
-   media: {
+  // Rotating hero image carousel. Add/remove entries or point `src` at your
+  // own photos any time (drop files in /public/hero). Switch `type` to
+  // "illustration" to go back to the animated icon graphic instead, or:
+  //   single image → { type: "image", src: "/showcase/dashboard.png", alt: "..." }
+  //   video clip   → { type: "video", src: "/showcase/demo.mp4" }
+  media: {
     type: "carousel" as "illustration" | "image" | "video" | "carousel",
     src: "",
     alt: "",
@@ -385,6 +385,7 @@ export const techStack = {
     "Business Communication",
   ],
 };
+
 export const finalCta = {
   heading: "Ready to transform your ideas into solutions?",
   body: "Whether you're looking to automate your business, improve your IT operations, implement technology solutions, or start your journey into AI and cybersecurity, GD Solutions is ready to help.",
