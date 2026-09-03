@@ -214,3 +214,32 @@ export function InstagramIcon(props: SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
+
+export function CodeIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base(props)}>
+      <path d="m8 6-5.5 6L8 18M16 6l5.5 6-5.5 6M13.5 4l-3 16" />
+    </svg>
+  );
+}
+
+export function CupIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base(props)}>
+      <path d="M4 8h13v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8Z" />
+      <path d="M17 9.5h1.5a2.5 2.5 0 0 1 0 5H17" />
+      <path d="M8 3.5c-.7.6-.7 1.4 0 2M12 3.5c-.7.6-.7 1.4 0 2" />
+    </svg>
+  );
+}
+
+export function NodesIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...base(props)}>
+      <circle cx="5" cy="6" r="2.3" />
+      <circle cx="5" cy="18" r="2.3" />
+      <circle cx="18" cy="12" r="2.6" />
+      <path d="M7.2 6.8 15.7 11M7.2 17.2 15.7 13" />
+    </svg>
+  );
+}

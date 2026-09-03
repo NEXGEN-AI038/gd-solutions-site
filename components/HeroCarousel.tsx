@@ -29,7 +29,7 @@ export default function HeroCarousel({
           src={img.src}
           alt={img.alt}
           fill
-          sizes="(min-width: 1024px) 40vw, 90vw"
+          sizes="(min-width: 1280px) 512px, (min-width: 1024px) 448px, 90vw"
           priority={i === 0}
           className={`object-cover transition-opacity duration-1000 ease-in-out ${
             i === index ? "opacity-100" : "opacity-0"

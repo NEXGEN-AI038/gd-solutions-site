@@ -1,20 +1,22 @@
 import { techStack } from "@/lib/content";
 import Reveal from "./Reveal";
 import {
+  SparkleIcon,
   BrainIcon,
-  BoltIcon,
-  ServerIcon,
-  GlobeIcon,
-  LockIcon,
+  ShuffleIcon,
+  CodeIcon,
+  LayersIcon,
+  CupIcon,
   SearchIcon,
-  CameraIcon,
-  HeadsetIcon,
+  NodesIcon,
 } from "./Icons";
 
-const ICONS = [BrainIcon, BoltIcon, ServerIcon, GlobeIcon, LockIcon, SearchIcon, CameraIcon, HeadsetIcon];
+// Positional pairing with techStack.items in lib/content.ts — keep the
+// order in sync if you add/remove/reorder tools there.
+const ICONS = [SparkleIcon, BrainIcon, ShuffleIcon, CodeIcon, LayersIcon, CupIcon, SearchIcon, NodesIcon];
 
 export default function TechStack() {
-  const items = techStack.items.map((label, i) => ({ label, Icon: ICONS[i % ICONS.length] }));
+  const items = techStack.items.map((item, i) => ({ ...item, Icon: ICONS[i % ICONS.length] }));
   const loop = [...items, ...items];
 
   return (
@@ -32,15 +34,19 @@ export default function TechStack() {
           <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-ink to-transparent" />
           <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-ink to-transparent" />
 
-          <div className="flex w-max animate-marquee items-center group-hover:[animation-play-state:paused]" style={{ animationDuration: "34s" }}>
-            {loop.map(({ label, Icon }, i) => (
+          <div
+            className="flex w-max animate-marquee items-center group-hover:[animation-play-state:paused]"
+            style={{ animationDuration: "30s" }}
+          >
+            {loop.map(({ name, color, Icon }, i) => (
               <div
-                key={`${label}-${i}`}
-                className="mx-3 flex shrink-0 items-center gap-3 rounded-sm border border-line bg-panel px-5 py-4"
+                key={`${name}-${i}`}
+                className="mx-3 flex shrink-0 items-center gap-3 rounded-sm border border-line bg-panel px-5 py-4 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-signal/5"
+                style={{ borderColor: `${color}33` }}
               >
-                <Icon className="h-5 w-5 text-signal" />
+                <Icon className="h-5 w-5" style={{ color }} />
                 <span className="whitespace-nowrap font-mono text-xs uppercase tracking-wider text-paper">
-                  {label}
+                  {name}
                 </span>
               </div>
             ))}

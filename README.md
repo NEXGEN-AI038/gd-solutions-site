@@ -64,6 +64,18 @@ resend.com, update the `from` field in `app/api/contact/route.ts` to
 something like `"GD Solutions <enquiries@gdsolutions.com>"` so it sends
 from your own domain instead.
 
+**If submissions aren't arriving:** the most common cause is Resend's
+sandbox restriction — until a domain is verified, Resend only lets you
+send *to* the exact email address the Resend account was signed up
+with, not to any address you choose. If `business.gdsolutions@gmail.com`
+wasn't the email used to create the Resend account, sends to it will be
+silently rejected. Fix it either by signing up for Resend using
+`business.gdsolutions@gmail.com` directly, or by verifying a real domain
+(Resend dashboard → Domains → Add Domain), which lifts the restriction
+for any recipient. Either way, check Vercel → your project → **Logs**
+after a test submission — a rejected send now logs a clear
+`Resend rejected the email:` message with the reason.
+
 ## 4. Deploy on Vercel
 
 **Option A — CLI**

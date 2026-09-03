@@ -367,22 +367,22 @@ export const reviews = {
   ],
 };
 
-// Technology categories shown in the "Technology We Use" strip — edit
-// these to name your actual specific tools/vendors once confirmed
-// (e.g. swap "Workflow Automation" for "n8n" or "Zapier" by name).
+// Technology stack — real tools GD Solutions works with, each with an
+// approximate brand color. Add/remove entries any time; pair each with an
+// icon in components/TechStack.tsx (positional, same order as this list).
 export const techStack = {
   eyebrow: "Our Stack",
   heading: "Technology we work with",
-  sub: "The categories of tools and platforms behind our automation, infrastructure and web work.",
+  sub: "The specific tools and platforms behind our automation, development and AI work.",
   items: [
-    "Artificial Intelligence & LLMs",
-    "Workflow Automation",
-    "Cloud Infrastructure",
-    "Web Development",
-    "Cybersecurity Tools",
-    "OSINT & Data Research",
-    "CCTV & Surveillance Tech",
-    "Business Communication",
+    { name: "OpenAI", color: "#10141A" },
+    { name: "Claude", color: "#CC785C" },
+    { name: "Make.com", color: "#7A3FE0" },
+    { name: "Next.js", color: "#10141A" },
+    { name: "Tailwind CSS", color: "#06B6D4" },
+    { name: "Java", color: "#ED8B00" },
+    { name: "Perplexity", color: "#1FB8CD" },
+    { name: "n8n", color: "#EA4560" },
   ],
 };
 
