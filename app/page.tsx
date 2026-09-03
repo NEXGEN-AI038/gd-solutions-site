@@ -6,6 +6,7 @@ import About from "@/components/About";
 import Services from "@/components/Services";
 import CaseStudies from "@/components/CaseStudies";
 import AiNetworkMap from "@/components/AiNetworkMap";
+import TechStack from "@/components/TechStack";
 import Training from "@/components/Training";
 import Process from "@/components/Process";
 import WhyUs from "@/components/WhyUs";
@@ -27,6 +28,7 @@ export default function Home() {
         <Services />
         <CaseStudies />
         <AiNetworkMap />
+        <TechStack />
         <Training />
         <Process />
         <WhyUs />

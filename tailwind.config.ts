@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: "class",
   content: [
     "./app/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
@@ -9,27 +10,31 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "#FFFFFF", // base background (was near-black; now white)
-        panel: "#F7F8FA", // card / panel background
-        panel2: "#EEF1F5", // slightly raised panel
-        line: "#E2E6EC", // hairline borders
-        paper: "#10151C", // primary text (was off-white; now near-black)
-        muted: "#5B6572", // secondary text
+        // Each token reads a CSS variable (defined per-theme in
+        // globals.css) so every existing bg-ink / text-paper / etc. class
+        // across the whole site automatically re-themes when the `dark`
+        // class is toggled on <html> — no per-component changes needed.
+        ink: "rgb(var(--color-ink) / <alpha-value>)",
+        panel: "rgb(var(--color-panel) / <alpha-value>)",
+        panel2: "rgb(var(--color-panel2) / <alpha-value>)",
+        line: "rgb(var(--color-line) / <alpha-value>)",
+        paper: "rgb(var(--color-paper) / <alpha-value>)",
+        muted: "rgb(var(--color-muted) / <alpha-value>)",
         signal: {
-          DEFAULT: "#0D9488", // primary accent — deepened teal for contrast on white
-          dim: "#0B7A70",
+          DEFAULT: "rgb(var(--color-signal) / <alpha-value>)",
+          dim: "rgb(var(--color-signal-dim) / <alpha-value>)",
         },
         warm: {
-          DEFAULT: "#F1650B", // secondary accent
-          dim: "#C2570C",
+          DEFAULT: "rgb(var(--color-warm) / <alpha-value>)",
+          dim: "rgb(var(--color-warm-dim) / <alpha-value>)",
         },
         violet: {
-          DEFAULT: "#7C6FF0", // tertiary accent
-          dim: "#5F52D6",
+          DEFAULT: "rgb(var(--color-violet) / <alpha-value>)",
+          dim: "rgb(var(--color-violet-dim) / <alpha-value>)",
         },
         sky: {
-          DEFAULT: "#0EA5E9", // quaternary accent
-          dim: "#0284C7",
+          DEFAULT: "rgb(var(--color-sky) / <alpha-value>)",
+          dim: "rgb(var(--color-sky-dim) / <alpha-value>)",
         },
       },
       fontFamily: {
@@ -81,6 +86,10 @@ const config: Config = {
           "0%, 100%": { transform: "translateY(0px)" },
           "50%": { transform: "translateY(-6px)" },
         },
+        "fade-in": {
+          from: { opacity: "0" },
+          to: { opacity: "1" },
+        },
       },
       animation: {
         "pulse-trace": "pulse-trace 2.4s ease-in-out infinite",
@@ -93,6 +102,7 @@ const config: Config = {
         "orbit-spin": "orbit-spin 36s linear infinite",
         "orbit-spin-reverse": "orbit-spin-reverse 36s linear infinite",
         float: "float 4s ease-in-out infinite",
+        "fade-in": "fade-in 1s ease-in-out",
       },
     },
   },

@@ -3,6 +3,41 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    /* Light theme (default) */
+    --color-ink: 255 255 255;
+    --color-panel: 247 248 250;
+    --color-panel2: 238 241 245;
+    --color-line: 226 230 236;
+    --color-paper: 16 21 28;
+    --color-muted: 91 101 114;
+    --color-signal: 13 148 136;
+    --color-signal-dim: 11 122 112;
+    --color-warm: 241 101 11;
+    --color-warm-dim: 194 87 12;
+    --color-violet: 124 111 240;
+    --color-violet-dim: 95 82 214;
+    --color-sky: 14 165 233;
+    --color-sky-dim: 2 132 199;
+  }
+
+  .dark {
+    --color-ink: 10 14 20;
+    --color-panel: 18 24 31;
+    --color-panel2: 23 30 39;
+    --color-line: 35 43 54;
+    --color-paper: 232 236 239;
+    --color-muted: 139 150 165;
+    --color-signal: 76 224 179;
+    --color-signal-dim: 46 138 110;
+    --color-warm: 255 138 91;
+    --color-warm-dim: 201 107 69;
+    --color-violet: 155 140 255;
+    --color-violet-dim: 110 95 196;
+    --color-sky: 94 200 255;
+    --color-sky-dim: 59 147 196;
+  }
+
   html {
     scroll-behavior: smooth;
   }
@@ -22,7 +57,7 @@
   }
 
   body {
-    @apply bg-ink text-paper font-body antialiased;
+    @apply bg-ink text-paper font-body antialiased transition-colors duration-300;
   }
 
   ::selection {
@@ -30,7 +65,7 @@
   }
 
   :focus-visible {
-    outline: 2px solid #4ce0b3;
+    outline: 2px solid rgb(var(--color-signal));
     outline-offset: 3px;
     border-radius: 2px;
   }
@@ -50,23 +85,28 @@
   }
 
   .btn-primary {
-    @apply inline-flex items-center gap-2 rounded-sm bg-signal px-6 py-3 font-mono text-sm uppercase tracking-wide text-ink transition-colors hover:bg-signal-dim;
+    @apply inline-flex items-center gap-2 rounded-sm bg-gradient-to-r from-signal to-sky px-6 py-3 font-mono text-sm uppercase tracking-wide text-ink shadow-lg shadow-signal/20 transition-all hover:scale-105 hover:shadow-signal/30;
   }
 
   .btn-ghost {
-    @apply inline-flex items-center gap-2 rounded-sm border border-line px-6 py-3 font-mono text-sm uppercase tracking-wide text-paper transition-colors hover:border-signal hover:text-signal;
+    @apply inline-flex items-center gap-2 rounded-sm border border-line px-6 py-3 font-mono text-sm uppercase tracking-wide text-paper transition-all hover:-translate-y-0.5 hover:border-signal hover:text-signal;
   }
 
   .card {
-    @apply rounded-sm border border-line bg-panel p-6 transition-colors hover:border-signal/40;
+    @apply rounded-sm border border-line bg-panel p-6 transition-all duration-300 hover:-translate-y-1 hover:border-signal/40 hover:shadow-xl hover:shadow-signal/5;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(90deg, #0d9488, #7c6ff0 55%, #0ea5e9);
   }
 }
 
 /* Circuit trace node pulse */
 .trace-node {
-  box-shadow: 0 0 0 4px rgba(76, 224, 179, 0.08);
+  box-shadow: 0 0 0 4px rgb(var(--color-signal) / 0.1);
 }
 
 .trace-node.active {
-  box-shadow: 0 0 0 6px rgba(76, 224, 179, 0.16);
+  box-shadow: 0 0 0 6px rgb(var(--color-signal) / 0.18);
 }

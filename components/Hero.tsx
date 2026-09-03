@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { hero, about } from "@/lib/content";
 import Reveal from "./Reveal";
+import HeroCarousel from "./HeroCarousel";
 import { BoltIcon, ServerIcon, CameraIcon, GlobeIcon, HeadsetIcon, WrenchIcon } from "./Icons";
 
 const ACCENTS = ["#7C6FF0", "#0D9488", "#F1650B", "#0EA5E9"];
@@ -115,6 +116,9 @@ function HeroIllustration() {
 
 function HeroMedia() {
   const { media } = hero;
+  if (media.type === "carousel" && media.images?.length) {
+    return <HeroCarousel images={media.images} />;
+  }
   if (media.type === "image" && media.src) {
     return (
       <div className="h-full w-full overflow-hidden rounded-lg border border-line bg-panel p-2 shadow-2xl shadow-black/40">

@@ -13,6 +13,14 @@ import { Resend } from "resend";
 //   4. Redeploy
 // Until RESEND_API_KEY is set, submissions are still accepted and logged
 // (visible in Vercel → your project → Logs) but no email is sent.
+//
+// IMPORTANT — Resend sandbox restriction: until you verify a domain on
+// resend.com, Resend only allows sending TO the exact email address the
+// Resend account itself was signed up with — sending to any other address
+// (like NOTIFY_EMAIL below) will be silently rejected. Either:
+//   (a) sign up for Resend using business.gdsolutions@gmail.com directly, or
+//   (b) verify a real domain on resend.com, which lifts the restriction
+//       entirely and lets you send to any address.
 
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
@@ -33,7 +41,7 @@ export async function POST(req: NextRequest) {
     console.log("New contact submission:", { name, email, company, service, message });
 
     if (resend) {
-      await resend.emails.send({
+      const { error } = await resend.emails.send({
         // Resend's shared test sender — works immediately with no domain
         // setup. Once you verify your own domain on resend.com, replace
         // this with e.g. "GD Solutions <enquiries@gdsolutions.com>".
@@ -53,6 +61,19 @@ export async function POST(req: NextRequest) {
           .filter(Boolean)
           .join("\n"),
       });
+
+      if (error) {
+        // Resend accepted the request but rejected the send — most often
+        // because, until a domain is verified, Resend's sandbox mode only
+        // allows sending to the email address the Resend account itself
+        // was signed up with. Log it clearly so it shows up in Vercel logs
+        // instead of failing silently.
+        console.error("Resend rejected the email:", error);
+        return NextResponse.json(
+          { error: "Email provider rejected the send. Check Vercel logs for details." },
+          { status: 502 }
+        );
+      }
     }
 
     return NextResponse.json({ ok: true });

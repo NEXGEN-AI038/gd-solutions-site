@@ -66,7 +66,7 @@ export default function AiNetworkMap() {
                 y1={CY}
                 x2={n.x}
                 y2={n.y}
-                stroke="#E2E6EC"
+                stroke="rgb(var(--color-line))"
                 strokeWidth={2}
               />
             ))}
@@ -110,7 +110,7 @@ export default function AiNetworkMap() {
 
             {/* hub */}
             <circle cx={CX} cy={CY} r={70} fill="url(#hubGlow)" className="animate-hub-glow" />
-            <circle cx={CX} cy={CY} r={46} fill="#F7F8FA" stroke="#0D9488" strokeWidth={2} />
+            <circle cx={CX} cy={CY} r={46} fill="rgb(var(--color-panel))" stroke="#0D9488" strokeWidth={2} />
             <foreignObject x={CX - 30} y={CY - 30} width={60} height={60}>
               <div className="flex h-full w-full items-center justify-center">
                 <Image src="/logo.png" alt="GD Solutions" width={40} height={40} />
@@ -120,7 +120,7 @@ export default function AiNetworkMap() {
             {/* outer nodes */}
             {nodes.map((n, i) => (
               <g key={`node-${i}`}>
-                <circle cx={n.x} cy={n.y} r={22} fill="#F7F8FA" stroke="#E2E6EC" strokeWidth={2} />
+                <circle cx={n.x} cy={n.y} r={22} fill="rgb(var(--color-panel))" stroke="rgb(var(--color-line))" strokeWidth={2} />
                 <circle
                   cx={n.x}
                   cy={n.y}
@@ -133,7 +133,7 @@ export default function AiNetworkMap() {
                   x={n.x}
                   y={n.y > CY ? n.y + 40 : n.y - 32}
                   textAnchor="middle"
-                  fill="#5B6572"
+                  fill="rgb(var(--color-muted))"
                   fontSize="12"
                   fontFamily="var(--font-mono)"
                   letterSpacing="0.3"

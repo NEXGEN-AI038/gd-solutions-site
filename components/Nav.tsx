@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { nav, site } from "@/lib/content";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
@@ -10,7 +11,7 @@ export default function Nav() {
   return (
     <header className="fixed top-0 z-50 w-full border-b border-line/70 bg-ink/85 backdrop-blur">
       <div className="container-page flex h-16 items-center justify-between gap-4">
-        <a href="#home" className="flex shrink-0 items-center gap-2.5">
+        <a href="/#home" className="flex shrink-0 items-center gap-2.5">
           <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white border border-line">
             <Image src="/logo.png" alt="GD Solutions logo" width={22} height={22} />
           </span>
@@ -32,8 +33,9 @@ export default function Nav() {
         </nav>
 
         <div className="flex shrink-0 items-center gap-3">
+          <ThemeToggle className="hidden xl:flex" />
           <a
-            href="#contact"
+            href="/#contact"
             className="hidden shrink-0 rounded-sm bg-gradient-to-r from-signal to-sky px-5 py-2.5 font-mono text-xs uppercase tracking-wide text-ink shadow-lg shadow-signal/20 transition-transform hover:scale-105 xl:inline-flex"
           >
             Get Started
@@ -63,13 +65,16 @@ export default function Nav() {
                 {item.label}
               </a>
             ))}
-            <a
-              href="#contact"
-              onClick={() => setOpen(false)}
-              className="w-fit rounded-sm bg-gradient-to-r from-signal to-sky px-5 py-2.5 font-mono text-xs uppercase tracking-wide text-ink"
-            >
-              Get Started
-            </a>
+            <div className="flex items-center gap-3 pt-1">
+              <a
+                href="/#contact"
+                onClick={() => setOpen(false)}
+                className="w-fit rounded-sm bg-gradient-to-r from-signal to-sky px-5 py-2.5 font-mono text-xs uppercase tracking-wide text-ink"
+              >
+                Get Started
+              </a>
+              <ThemeToggle />
+            </div>
           </div>
         </div>
       )}
