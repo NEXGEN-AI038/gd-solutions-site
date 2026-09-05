@@ -218,11 +218,11 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="relative hidden min-w-0 justify-self-center lg:block">
+        <div className="relative hidden min-w-0 lg:block">
           {/* large violet halo, filling the column for strong contrast on white */}
           <div className="pointer-events-none absolute -inset-12 -z-10 rounded-full bg-violet/20 blur-[90px]" />
           <div className="pointer-events-none absolute -inset-4 -z-10 rounded-full bg-signal/10 blur-3xl" />
-          <div className="aspect-square w-full max-w-md motion-safe:animate-float xl:max-w-lg">
+          <div className="aspect-square w-full max-w-md motion-safe:animate-float xl:max-w-lg mx-auto">
             <HeroMedia />
           </div>
         </div>
