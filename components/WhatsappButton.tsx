@@ -1,11 +1,11 @@
-import { site } from "@/lib/content";
+import { site, buildWhatsappLink } from "@/lib/content";
 
 export default function WhatsappButton() {
   const primary = site.whatsapp[0];
 
   return (
     <a
-      href={`https://wa.me/${primary.number}`}
+      href={buildWhatsappLink(primary.number)}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`Chat on WhatsApp — ${primary.label}`}

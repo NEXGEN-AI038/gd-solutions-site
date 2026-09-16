@@ -17,6 +17,11 @@ export const site = {
     { label: "+91 98318 22045", number: "919831822045" },
     { label: "+91 98309 08641", number: "919830908641" },
   ],
+  // Default prefilled WhatsApp message — removes friction for the visitor.
+  // Individual pages (e.g. a service page) can pass their own message
+  // instead via the buildWhatsappLink helper below.
+  whatsappDefaultMessage:
+    "Hi GD Solutions, I'd like to know more about your services.",
   social: {
     linkedin: "https://linkedin.com/company/gdsolutions",
     instagram: "https://instagram.com/gdsolutions",
@@ -25,6 +30,13 @@ export const site = {
   },
   year: new Date().getFullYear(),
 };
+
+// Builds a wa.me link with a prefilled message — use this instead of a
+// bare wa.me/<number> link anywhere a WhatsApp CTA appears.
+export function buildWhatsappLink(number: string, message?: string) {
+  const text = encodeURIComponent(message ?? site.whatsappDefaultMessage);
+  return `https://wa.me/${number}?text=${text}`;
+}
 
 export const nav = [
   { label: "Home", href: "/#home" },
@@ -44,11 +56,6 @@ export const hero = {
   ctaPrimary: { label: "Explore Services", href: "#services" },
   ctaSecondary: { label: "Book a Free Consultation", href: "#contact" },
   tags: ["AI Automation", "IT Infrastructure", "Cyber & OSINT Training"],
-  // Rotating hero image carousel. Add/remove entries or point `src` at your
-  // own photos any time (drop files in /public/hero). Switch `type` to
-  // "illustration" to go back to the animated icon graphic instead, or:
-  //   single image → { type: "image", src: "/showcase/dashboard.png", alt: "..." }
-  //   video clip   → { type: "video", src: "/showcase/demo.mp4" }
   media: {
     type: "carousel" as "illustration" | "image" | "video" | "carousel",
     src: "",
@@ -85,7 +92,6 @@ export const about = {
       body: "We keep teams and learners ahead of the technology curve.",
     },
   ],
-  // Edit these to your real numbers — they animate into view on scroll.
   stats: [
     { value: 10, suffix: "+", label: "AI & Automation Solutions" },
     { value: 12, suffix: "+", label: "IT Projects Delivered" },
@@ -94,8 +100,6 @@ export const about = {
   ],
 };
 
-// Continuous ticker strip — shown as a scrolling band under the hero.
-// Edit labels/order freely; the marquee duplicates the list automatically.
 export const ticker = [
   "AI Automation",
   "IT Infrastructure Projects",
@@ -108,9 +112,6 @@ export const ticker = [
   "OSINT Training",
 ];
 
-// Nodes for the animated AI network map. "center" is the hub (rendered
-// with the company logo); each other node orbits it with a pulsing
-// connection line.
 export const aiNetwork = {
   eyebrow: "Powered by intelligence",
   heading: "One hub. Every workflow connected.",
@@ -126,50 +127,134 @@ export const aiNetwork = {
   ],
 };
 
+// ── Business Technology services ───────────────────────────────────────
+// Each has a slug (used for its own page at /services/<slug>), a short
+// card blurb ("body"), and richer detail-page content (tagline, details,
+// benefits, idealFor). Career support (BPO) is a separate track — see
+// careerSupport below — since it serves individuals, not businesses.
 export const services = {
-  eyebrow: "Services",
+  eyebrow: "Business Technology",
   heading: "Solutions that move you forward",
-  sub: "Practical technology services across automation, infrastructure, operations and careers.",
+  sub: "Practical technology services across automation, infrastructure and operations.",
   items: [
     {
       code: "01",
+      slug: "ai-automation",
       title: "AI Automation",
       body: "Automate repetitive tasks and business workflows using intelligent AI-powered solutions.",
+      tagline: "Stop wasting hours on repetitive work.",
+      details:
+        "We build AI-powered automation around the tasks that quietly eat your team's time — email processing, data entry, lead management, invoice handling, reporting and more. Every workflow is designed around how your business actually operates, not a generic template.",
+      benefits: [
+        "Email and document processing",
+        "Data entry and reporting automation",
+        "Lead management workflows",
+        "Invoice and receipt processing",
+        "Notification and alert automation",
+        "Ongoing monitoring after launch",
+      ],
+      idealFor: "SMEs, operations teams and growing businesses looking to cut manual work.",
     },
     {
       code: "02",
+      slug: "it-infrastructure",
       title: "IT Infrastructure Projects",
       body: "Reliable and scalable IT infrastructure solutions designed to support business growth.",
+      tagline: "Infrastructure built for where your business is going.",
+      details:
+        "From network design to server deployment, we plan and deliver IT infrastructure that scales with your business, with clear documentation and support after go-live.",
+      benefits: [
+        "Network design, setup and configuration",
+        "Server deployment and management",
+        "Infrastructure planning for scaling businesses",
+        "Migration and upgrade projects",
+        "Ongoing support after delivery",
+      ],
+      idealFor: "Businesses setting up new offices, scaling operations, or replacing aging infrastructure.",
     },
     {
       code: "03",
+      slug: "surveillance-systems",
       title: "Surveillance Systems",
       body: "End-to-end installation and maintenance of CCTV camera systems for homes, offices and facilities.",
+      tagline: "End-to-end CCTV, from planning to ongoing upkeep.",
+      details:
+        "We handle the full surveillance system lifecycle — site assessment, camera placement, professional installation, remote-viewing setup, and ongoing maintenance — so you get reliable coverage without the guesswork.",
+      benefits: [
+        "Site assessment and camera placement planning",
+        "Professional installation and cabling",
+        "Remote viewing setup for mobile monitoring",
+        "NVR/DVR configuration",
+        "Ongoing maintenance and support",
+      ],
+      idealFor: "Homes, offices, retail stores and facilities that need reliable, professionally installed coverage.",
     },
     {
       code: "04",
+      slug: "it-services",
       title: "IT Services",
       body: "Remote IT support, desktop and laptop support, Microsoft 365 support, network troubleshooting, server support and IT consulting — flexible day-to-day support for your organization.",
+      tagline: "Day-to-day IT support that doesn't slow your team down.",
+      details:
+        "Remote support, troubleshooting and consulting for the technology your team already relies on — so small issues get resolved before they become big ones.",
+      benefits: [
+        "Remote IT support for individuals and teams",
+        "Desktop and laptop support",
+        "Microsoft 365 setup and support",
+        "Network troubleshooting",
+        "IT consulting and advice",
+      ],
+      idealFor: "Small businesses and teams who need reliable IT support without a full in-house department.",
     },
     {
       code: "05",
+      slug: "website-design-hosting",
       title: "Website Designing & Hosting",
       body: "Custom website design, development and reliable hosting to give your business a strong online presence.",
-    },
-    {
-      code: "06",
-      title: "Business Process Outsourcing Interview Assistance",
-      body: "Helping aspiring professionals prepare confidently for Business Process Outsourcing and customer service interviews.",
+      tagline: "A website that actually represents your business.",
+      details:
+        "Custom design and development paired with reliable hosting — no generic templates, no unpredictable downtime. Built to load fast and work properly on every device.",
+      benefits: [
+        "Custom design tailored to your business",
+        "Mobile-responsive, fast-loading builds",
+        "Reliable hosting and deployment",
+        "Domain and DNS setup assistance",
+        "Ongoing updates and maintenance available",
+      ],
+      idealFor: "Businesses that need a professional online presence or are outgrowing their current site.",
     },
   ],
   ctaHeading: "Not sure where to start?",
-  ctaBody:
-    "Tell us about your business or learning goal and we'll map the right path for you.",
+  ctaBody: "Tell us about your business or learning goal and we'll map the right path for you.",
   ctaLabel: "Talk to Us",
 };
 
+// ── Career Support ───────────────────────────────────────────────────
+// A separate track from Business Technology — this serves individual job
+// seekers, not businesses, so it's kept visually and structurally apart.
+export const careerSupport = {
+  eyebrow: "Career Support",
+  heading: "Get interview-ready",
+  item: {
+    slug: "bpo-interview-assistance",
+    title: "Business Process Outsourcing Interview Assistance",
+    body: "Helping aspiring professionals prepare confidently for Business Process Outsourcing and customer service interviews.",
+    tagline: "Walk into your BPO interview prepared, not just hopeful.",
+    details:
+      "Practical, honest interview preparation for Business Process Outsourcing and customer service roles — mock interviews, real feedback, and the specific communication skills interviewers actually look for.",
+    benefits: [
+      "Mock interviews with real feedback",
+      "Communication and voice clarity coaching",
+      "Common BPO interview question preparation",
+      "Confidence-building for first-time applicants",
+    ],
+    idealFor: "Job seekers preparing for their first BPO or customer service interview.",
+  },
+  ctaLabel: "Book Interview Prep",
+};
+
 export const training = {
-  eyebrow: "Training",
+  eyebrow: "AI & Cyber Training",
   heading: "Learn. Build. Grow.",
   sub: "Beginner-friendly courses designed to help you understand today's most important technologies — taught ethically, legally and practically.",
   courses: [
@@ -270,8 +355,6 @@ export const whyUs = {
   ],
 };
 
-// Real case studies from live projects — infographics with a benefits /
-// usage-scenario breakdown. Add more the same way any time.
 export const caseStudies = {
   eyebrow: "Case Studies",
   heading: "Automation in the wild",
@@ -337,39 +420,6 @@ export const caseStudies = {
   ],
 };
 
-export const reviews = {
-  eyebrow: "Reviews",
-  heading: "What clients and learners say",
-  sub: "Real feedback from the businesses we've automated for and the learners we've trained.",
-  ctaLabel: "Leave us a review",
-  items: [
-    {
-      quote:
-        "GD Solutions mapped our lead intake workflow and automated most of it within two weeks. Our team spends far less time on repetitive data entry now.",
-      name: "Priya Nair",
-      role: "Operations Lead, retail client",
-      rating: 5,
-    },
-    {
-      quote:
-        "The OSINT fundamentals course was clear, practical and genuinely beginner-friendly. I went from zero background to comfortable with the core techniques.",
-      name: "Arjun Mehta",
-      role: "Course participant",
-      rating: 5,
-    },
-    {
-      quote:
-        "Our IT infrastructure migration was handled with clear communication at every stage. No surprises, and the team was responsive throughout.",
-      name: "Sana Iqbal",
-      role: "IT Manager, logistics client",
-      rating: 4,
-    },
-  ],
-};
-
-// Technology stack — real tools GD Solutions works with, each with an
-// approximate brand color. Add/remove entries any time; pair each with an
-// icon in components/TechStack.tsx (positional, same order as this list).
 export const techStack = {
   eyebrow: "Our Stack",
   heading: "Technology we work with",
@@ -386,10 +436,20 @@ export const techStack = {
   ],
 };
 
+// Review content is now fetched live from Google Places API (see
+// lib/googleReviews.ts and README.md → "Connecting live Google Reviews")
+// instead of hardcoded here — this text is just the section framing.
+export const reviews = {
+  eyebrow: "Reviews",
+  heading: "What clients and learners say",
+  sub: "Real feedback from the businesses we've automated for and the learners we've trained.",
+  ctaLabel: "Leave us a review",
+};
+
 export const finalCta = {
-  heading: "Ready to transform your ideas into solutions?",
-  body: "Whether you're looking to automate your business, improve your IT operations, implement technology solutions, or start your journey into AI and cybersecurity, GD Solutions is ready to help.",
-  ctaPrimary: { label: "Book a Free Consultation", href: "#contact" },
+  heading: "Have a process you want to automate?",
+  body: "Tell us what your team currently does manually — we'll identify where AI and automation can save you time.",
+  ctaPrimary: { label: "Book a Free Automation Consultation", href: "#contact" },
   ctaSecondary: { label: "Explore Services", href: "#services" },
 };
 

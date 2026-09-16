@@ -1,12 +1,11 @@
+import Link from "next/link";
 import { services } from "@/lib/content";
 import Reveal from "./Reveal";
-import { BoltIcon, ServerIcon, CameraIcon, WrenchIcon, GlobeIcon, HeadsetIcon } from "./Icons";
+import { BoltIcon, ServerIcon, CameraIcon, WrenchIcon, GlobeIcon } from "./Icons";
 
-const ICONS = [BoltIcon, ServerIcon, CameraIcon, WrenchIcon, GlobeIcon, HeadsetIcon];
+const ICONS = [BoltIcon, ServerIcon, CameraIcon, WrenchIcon, GlobeIcon];
 
-// Full class names listed literally so Tailwind's scanner picks them up
-// (it can't detect classes built by concatenating strings at runtime).
-const ACCENT_BG = ["bg-signal/10 text-signal", "bg-warm/10 text-warm", "bg-violet/10 text-violet", "bg-sky/10 text-sky"];
+const ACCENT_TEXT = ["text-signal", "text-warm", "text-violet", "text-sky"];
 const ACCENT_HOVER_TEXT = [
   "group-hover:text-signal",
   "group-hover:text-warm",
@@ -37,7 +36,12 @@ export default function Services() {
         <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.items.map((item, i) => {
             const Icon = ICONS[i % ICONS.length];
-            const iconBg = ACCENT_BG[i % ACCENT_BG.length];
+            const iconBg = [
+              "bg-signal/10 text-signal",
+              "bg-warm/10 text-warm",
+              "bg-violet/10 text-violet",
+              "bg-sky/10 text-sky",
+            ][i % 4];
             const hoverTextAccent = ACCENT_HOVER_TEXT[i % ACCENT_HOVER_TEXT.length];
             const hoverBorderAccent = ACCENT_HOVER_BORDER[i % ACCENT_HOVER_BORDER.length];
             return (
@@ -52,12 +56,12 @@ export default function Services() {
                     {item.title}
                   </h3>
                   <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">{item.body}</p>
-                  <a
-                    href="#contact"
+                  <Link
+                    href={`/services/${item.slug}`}
                     className={`mt-5 inline-flex w-fit items-center gap-2 font-mono text-xs uppercase tracking-widest text-muted transition-colors ${hoverTextAccent}`}
                   >
                     Learn More →
-                  </a>
+                  </Link>
                 </div>
               </Reveal>
             );

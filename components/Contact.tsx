@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
-import { contact, site } from "@/lib/content";
+import { Suspense, useEffect, useState, type FormEvent } from "react";
+import { useSearchParams } from "next/navigation";
+import { contact, site, buildWhatsappLink } from "@/lib/content";
 import Reveal from "./Reveal";
 import { MailIcon, PinIcon, WhatsappGlyphIcon, LinkedinIcon, InstagramIcon } from "./Icons";
 
@@ -14,9 +15,18 @@ const ACCENT_ICON_BG = [
   "bg-sky/10 text-sky",
 ];
 
-export default function Contact() {
+function ContactInner() {
   const [status, setStatus] = useState<Status>("idle");
   const [service, setService] = useState("");
+  const searchParams = useSearchParams();
+
+  // If a page linked here with ?service=..., pre-select it in the form.
+  useEffect(() => {
+    const requested = searchParams.get("service");
+    if (requested && contact.serviceOptions.includes(requested)) {
+      setService(requested);
+    }
+  }, [searchParams]);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -74,7 +84,7 @@ export default function Contact() {
                 {site.whatsapp.map((w) => (
                   <a
                     key={w.number}
-                    href={`https://wa.me/${w.number}`}
+                    href={buildWhatsappLink(w.number)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mt-0.5 block text-sm text-paper hover:text-signal"
@@ -180,6 +190,14 @@ export default function Contact() {
         </Reveal>
       </div>
     </section>
+  );
+}
+
+export default function Contact() {
+  return (
+    <Suspense fallback={null}>
+      <ContactInner />
+    </Suspense>
   );
 }
 
