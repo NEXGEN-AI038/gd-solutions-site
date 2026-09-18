@@ -5,15 +5,17 @@ import Image from "next/image";
 
 export default function HeroCarousel({
   images,
-  intervalMs = 4000,
+  intervalMs = 4500,
 }: {
   images: { src: string; alt: string }[];
   intervalMs?: number;
 }) {
   const [index, setIndex] = useState(0);
+  const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    setReducedMotion(prefersReduced);
     if (prefersReduced || images.length <= 1) return;
     const id = setInterval(() => {
       setIndex((i) => (i + 1) % images.length);
@@ -31,9 +33,18 @@ export default function HeroCarousel({
           fill
           sizes="(min-width: 1280px) 512px, (min-width: 1024px) 448px, 90vw"
           priority={i === 0}
-          className={`object-cover transition-opacity duration-1000 ease-in-out ${
-            i === index ? "opacity-100" : "opacity-0"
-          }`}
+          className="object-cover"
+          style={
+            reducedMotion
+              ? { opacity: i === index ? 1 : 0, transition: "opacity 300ms ease-in-out" }
+              : {
+                  opacity: i === index ? 1 : 0,
+                  transform: i === index ? "scale(1.09)" : "scale(1)",
+                  transitionProperty: "opacity, transform",
+                  transitionDuration: "1200ms, 5200ms",
+                  transitionTimingFunction: "ease-in-out, ease-out",
+                }
+          }
         />
       ))}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/50 via-transparent to-transparent" />

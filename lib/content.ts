@@ -51,7 +51,17 @@ export const nav = [
 
 export const hero = {
   eyebrow: "AI · Technology · Digital Innovation",
-  headline: "Transforming ideas into intelligent systems.",
+  headline: "Transforming ideas into",
+  // The tail of the headline rotates through these, one at a time, each
+  // in a different accent color — keeps the hero feeling alive instead
+  // of static. Edit freely; keep phrases short so the line doesn't wrap.
+  rotatingPhrases: [
+    "intelligent systems.",
+    "automated workflows.",
+    "smarter businesses.",
+    "reliable infrastructure.",
+    "secure operations.",
+  ],
   sub: "From AI-powered automation and IT infrastructure to technology services and professional training, GD Solutions helps businesses and individuals move confidently into the digital future.",
   ctaPrimary: { label: "Explore Services", href: "#services" },
   ctaSecondary: { label: "Book a Free Consultation", href: "#contact" },

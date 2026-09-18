@@ -2,6 +2,7 @@ import Image from "next/image";
 import { hero, about } from "@/lib/content";
 import Reveal from "./Reveal";
 import HeroCarousel from "./HeroCarousel";
+import RotatingWords from "./RotatingWords";
 import { BoltIcon, ServerIcon, CameraIcon, GlobeIcon, HeadsetIcon, WrenchIcon } from "./Icons";
 
 const ACCENTS = ["#7C6FF0", "#0D9488", "#F1650B", "#0EA5E9"];
@@ -143,12 +144,9 @@ function HeroMedia() {
 }
 
 function HeroHeadline() {
-  const words = hero.headline.split(" ");
-  const normalPart = words.slice(0, -2).join(" ");
-  const gradientPart = words.slice(-2).join(" ");
   return (
     <h1 className="section-heading max-w-3xl text-4xl leading-[1.08] sm:text-5xl md:text-6xl lg:text-7xl">
-      {normalPart} <span className="gradient-text">{gradientPart}</span>
+      {hero.headline} <RotatingWords words={hero.rotatingPhrases} />
     </h1>
   );
 }
