@@ -220,7 +220,7 @@ export default function Hero() {
           {/* large violet halo, filling the column for strong contrast on white */}
           <div className="pointer-events-none absolute -inset-12 -z-10 rounded-full bg-violet/20 blur-[90px]" />
           <div className="pointer-events-none absolute -inset-4 -z-10 rounded-full bg-signal/10 blur-3xl" />
-          <div className="aspect-square w-full max-w-md motion-safe:animate-float xl:max-w-lg mx-auto">
+          <div className="h-[400px] w-full motion-safe:animate-float sm:h-[460px] lg:h-[520px] xl:h-[580px]">
             <HeroMedia />
           </div>
         </div>
