@@ -1,26 +1,24 @@
 import { techStack } from "@/lib/content";
 import Reveal from "./Reveal";
-import {
-  SparkleIcon,
-  BrainIcon,
-  ShuffleIcon,
-  CodeIcon,
-  LayersIcon,
-  CupIcon,
-  SearchIcon,
-  NodesIcon,
-} from "./Icons";
 
-// Positional pairing with techStack.items in lib/content.ts — keep the
-// order in sync if you add/remove/reorder tools there.
-const ICONS = [SparkleIcon, BrainIcon, ShuffleIcon, CodeIcon, LayersIcon, CupIcon, SearchIcon, NodesIcon];
+const LOGOS = [
+  { name: "Claude", file: "claude.jpg", color: "#DA7756" },
+  { name: "OpenAI", file: "openai.png", color: "#10A37F" },
+  { name: "Gemini", file: "gemini.png", color: "#8E75FF" },
+  { name: "Perplexity", file: "perplexity.png", color: "#1FB8CD" },
+  { name: "Make.com", file: "make.jpg", color: "#6100FF" },
+  { name: "n8n", file: "n8n.png", color: "#EA4B71" },
+  { name: "Zapier", file: "zapier.jpg", color: "#FF4A00" },
+  { name: "Next.js", file: "nextjs.png", color: "#A1A1AA" },
+  { name: "React", file: "react.png", color: "#61DAFB" },
+  { name: "Tailwind CSS", file: "tailwindcss.png", color: "#38BDF8" },
+  { name: "Java", file: "java.png", color: "#E76F00" },
+  { name: "Supabase", file: "supabase.svg", color: "#3ECF8E" },
+  { name: "Red Hat", file: "redhat.svg", color: "#EE0000" },
+  { name: "Vapi", file: "vapi.svg", color: "#F2B705" },
+];
 
 export default function TechStack() {
-  const items = techStack.items.map((item, i) => ({ ...item, Icon: ICONS[i % ICONS.length] }));
-  const mid = Math.ceil(items.length / 2);
-  const rowA = [...items.slice(0, mid), ...items.slice(0, mid)];
-  const rowB = [...items.slice(mid), ...items.slice(mid)];
-
   return (
     <section className="relative overflow-hidden border-t border-line py-24">
       {/* ambient color, matching the rest of the site */}
@@ -33,68 +31,30 @@ export default function TechStack() {
           <h2 className="section-heading max-w-xl">{techStack.heading}</h2>
           <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted">{techStack.sub}</p>
         </Reveal>
+
+        <Reveal delay={100}>
+          <div className="mt-14 grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7">
+            {LOGOS.map(({ name, file, color }) => (
+              <div
+                key={name}
+                className="relative flex flex-col items-center gap-4 overflow-hidden rounded-2xl border border-line bg-panel p-6"
+              >
+                <div
+                  className="pointer-events-none absolute -inset-8 rounded-full opacity-25 blur-2xl"
+                  style={{ background: color }}
+                />
+                <div className="relative flex h-16 w-16 items-center justify-center rounded-xl bg-white p-2.5 sm:h-20 sm:w-20">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={`/logos/${file}`} alt={name} className="h-full w-full object-contain" />
+                </div>
+                <span className="relative text-center font-mono text-[11px] uppercase tracking-wider text-paper">
+                  {name}
+                </span>
+              </div>
+            ))}
+          </div>
+        </Reveal>
       </div>
-
-      <Reveal delay={100}>
-        <div className="group relative mt-16 space-y-8">
-          <div
-            className="pointer-events-none absolute inset-y-0 left-0 z-10 w-28"
-            style={{ background: "linear-gradient(to right, rgba(6,7,8,1) 0%, transparent 100%)" }}
-          />
-          <div
-            className="pointer-events-none absolute inset-y-0 right-0 z-10 w-28"
-            style={{ background: "linear-gradient(to left, rgba(6,7,8,1) 0%, transparent 100%)" }}
-          />
-
-          {/* row 1 — drifts left */}
-          <div className="overflow-hidden">
-            <div
-              className="flex w-max items-center gap-6 animate-marquee group-hover:[animation-play-state:paused]"
-              style={{ animationDuration: "46s" }}
-            >
-              {rowA.map(({ name, color, Icon }, i) => (
-                <div
-                  key={`a-${name}-${i}`}
-                  className="flex h-36 w-36 shrink-0 flex-col items-center justify-center gap-3 rounded-2xl border bg-panel transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-signal/10"
-                  style={{ borderColor: `${color}40` }}
-                >
-                  <span
-                    className="flex h-14 w-14 items-center justify-center rounded-xl"
-                    style={{ background: `${color}1F` }}
-                  >
-                    <Icon className="h-7 w-7" style={{ color }} />
-                  </span>
-                  <span className="font-mono text-xs uppercase tracking-wider text-paper">{name}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* row 2 — drifts right, opposite direction for a layered feel */}
-          <div className="overflow-hidden">
-            <div
-              className="flex w-max items-center gap-6 animate-marquee group-hover:[animation-play-state:paused]"
-              style={{ animationDuration: "54s", animationDirection: "reverse" }}
-            >
-              {rowB.map(({ name, color, Icon }, i) => (
-                <div
-                  key={`b-${name}-${i}`}
-                  className="flex h-36 w-36 shrink-0 flex-col items-center justify-center gap-3 rounded-2xl border bg-panel transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-signal/10"
-                  style={{ borderColor: `${color}40` }}
-                >
-                  <span
-                    className="flex h-14 w-14 items-center justify-center rounded-xl"
-                    style={{ background: `${color}1F` }}
-                  >
-                    <Icon className="h-7 w-7" style={{ color }} />
-                  </span>
-                  <span className="font-mono text-xs uppercase tracking-wider text-paper">{name}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </Reveal>
     </section>
   );
 }
