@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-const RADIUS = 170;
+const RADIUS = 210;
 
 type LogoItem = { name: string; file: string; color: string };
 
@@ -59,7 +59,17 @@ export default function TechGlobe({ items }: { items: LogoItem[] }) {
   }, []);
 
   return (
-    <div className="relative mx-auto h-[380px] w-full max-w-xl sm:h-[460px]" style={{ perspective: "1000px" }}>
+    <div className="relative mx-auto h-[420px] w-full max-w-xl sm:h-[520px]" style={{ perspective: "700px" }}>
+      {/* faint wireframe rings hinting at the sphere's outline */}
+      <div
+        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-line/60"
+        style={{ width: RADIUS * 2, height: RADIUS * 2 }}
+      />
+      <div
+        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-line/40"
+        style={{ width: RADIUS * 2 * 0.62, height: RADIUS * 2 }}
+      />
+
       <div className="absolute inset-0" style={{ transformStyle: "preserve-3d" }}>
         {items.map((item, i) => (
           <div

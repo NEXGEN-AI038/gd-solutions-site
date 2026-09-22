@@ -7,14 +7,15 @@ export default function TechStackBackground() {
   return (
     <div className="absolute inset-0 h-full w-full overflow-hidden">
       <LaserCollection
-        speed={0.6}
-        size={1}
-        length={1.1}
-        density={0.7}
-        opacity={0.35}
+        variant="halftone-relay"
+        speed={0.5}
+        size={0.8}
+        length={0.8}
+        density={0.6}
+        opacity={0.2}
         hue={165}
-        saturation={0.8}
-        brightness={1}
+        saturation={0.7}
+        brightness={0.8}
         style={{ background: "transparent" }}
       />
     </div>
