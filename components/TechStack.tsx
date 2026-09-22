@@ -1,5 +1,7 @@
 import { techStack } from "@/lib/content";
 import Reveal from "./Reveal";
+import TechStackBackground from "./TechStackBackground";
+import TechGlobe from "./TechGlobe";
 
 const LOGOS = [
   { name: "Claude", file: "claude.jpg", color: "#DA7756" },
@@ -20,10 +22,15 @@ const LOGOS = [
 
 export default function TechStack() {
   return (
-    <section className="relative overflow-hidden border-t border-line py-24">
-      {/* ambient color, matching the rest of the site */}
-      <div className="pointer-events-none absolute top-0 left-1/4 h-72 w-72 -translate-y-1/2 rounded-full bg-signal/10 blur-[120px]" />
-      <div className="pointer-events-none absolute bottom-0 right-1/4 h-72 w-72 translate-y-1/2 rounded-full bg-violet/10 blur-[120px]" />
+    <section className="relative isolate overflow-hidden border-t border-line py-24">
+      {/* full-bleed laser background */}
+      <div className="absolute inset-0 -z-10">
+        <TechStackBackground />
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{ background: "radial-gradient(circle at 50% 50%, transparent 0%, rgba(6,7,8,0.85) 75%)" }}
+        />
+      </div>
 
       <div className="container-page relative">
         <Reveal>
@@ -33,34 +40,7 @@ export default function TechStack() {
         </Reveal>
 
         <Reveal delay={100}>
-          <div className="mt-14 grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7">
-            {LOGOS.map(({ name, file, color }) => (
-              <div
-                key={name}
-                className="group relative flex flex-col items-center gap-4 overflow-hidden rounded-2xl border p-6 pt-7"
-                style={{
-                  borderColor: `${color}35`,
-                  background: `linear-gradient(160deg, ${color}22 0%, rgb(var(--color-panel)) 55%)`,
-                  boxShadow: `0 24px 40px -28px ${color}80`,
-                }}
-              >
-                <div className="absolute inset-x-0 top-0 h-[3px]" style={{ background: color }} />
-                <div
-                  className="pointer-events-none absolute -inset-10 rounded-full opacity-20 blur-3xl"
-                  style={{ background: color }}
-                />
-                <div
-                  className="relative flex h-16 w-16 items-center justify-center rounded-xl bg-white p-2.5 shadow-[0_10px_24px_-8px_rgba(0,0,0,0.6)] sm:h-20 sm:w-20"
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={`/logos/${file}`} alt={name} className="h-full w-full object-contain" />
-                </div>
-                <span className="relative text-center font-mono text-[11px] uppercase tracking-wider text-paper">
-                  {name}
-                </span>
-              </div>
-            ))}
-          </div>
+          <TechGlobe items={LOGOS} />
         </Reveal>
       </div>
     </section>
