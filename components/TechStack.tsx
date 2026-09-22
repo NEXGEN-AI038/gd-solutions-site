@@ -36,29 +36,35 @@ export default function TechStack() {
       </div>
 
       <Reveal delay={100}>
-        <div className="group relative mt-14 space-y-4 overflow-hidden rounded-2xl border border-line bg-panel/30 py-8">
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-ink to-transparent" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-ink to-transparent" />
+        <div className="group relative mt-16 space-y-6">
+          <div
+            className="pointer-events-none absolute inset-y-0 left-0 z-10 w-28"
+            style={{ background: "linear-gradient(to right, rgba(6,7,8,1) 0%, transparent 100%)" }}
+          />
+          <div
+            className="pointer-events-none absolute inset-y-0 right-0 z-10 w-28"
+            style={{ background: "linear-gradient(to left, rgba(6,7,8,1) 0%, transparent 100%)" }}
+          />
 
           {/* row 1 — scrolls left */}
           <div className="overflow-hidden">
             <div
-              className="flex w-max items-center gap-4 animate-marquee group-hover:[animation-play-state:paused]"
+              className="flex w-max items-center gap-5 animate-marquee group-hover:[animation-play-state:paused]"
               style={{ animationDuration: "32s" }}
             >
               {rowA.map(({ name, color, Icon }, i) => (
                 <div
                   key={`a-${name}-${i}`}
-                  className="flex shrink-0 items-center gap-3 rounded-lg border bg-panel px-5 py-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-signal/10"
+                  className="flex shrink-0 items-center gap-3 rounded-lg border bg-panel px-6 py-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-signal/10"
                   style={{ borderColor: `${color}33` }}
                 >
                   <span
-                    className="flex h-9 w-9 items-center justify-center rounded-md"
+                    className="flex h-10 w-10 items-center justify-center rounded-md"
                     style={{ background: `${color}1A` }}
                   >
                     <Icon className="h-5 w-5" style={{ color }} />
                   </span>
-                  <span className="whitespace-nowrap font-mono text-xs uppercase tracking-wider text-paper">
+                  <span className="whitespace-nowrap font-mono text-sm uppercase tracking-wider text-paper">
                     {name}
                   </span>
                 </div>
@@ -69,22 +75,22 @@ export default function TechStack() {
           {/* row 2 — scrolls right, opposite direction for a layered feel */}
           <div className="overflow-hidden">
             <div
-              className="flex w-max items-center gap-4 animate-marquee group-hover:[animation-play-state:paused]"
+              className="flex w-max items-center gap-5 animate-marquee group-hover:[animation-play-state:paused]"
               style={{ animationDuration: "38s", animationDirection: "reverse" }}
             >
               {rowB.map(({ name, color, Icon }, i) => (
                 <div
                   key={`b-${name}-${i}`}
-                  className="flex shrink-0 items-center gap-3 rounded-lg border bg-panel px-5 py-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-signal/10"
+                  className="flex shrink-0 items-center gap-3 rounded-lg border bg-panel px-6 py-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-signal/10"
                   style={{ borderColor: `${color}33` }}
                 >
                   <span
-                    className="flex h-9 w-9 items-center justify-center rounded-md"
+                    className="flex h-10 w-10 items-center justify-center rounded-md"
                     style={{ background: `${color}1A` }}
                   >
                     <Icon className="h-5 w-5" style={{ color }} />
                   </span>
-                  <span className="whitespace-nowrap font-mono text-xs uppercase tracking-wider text-paper">
+                  <span className="whitespace-nowrap font-mono text-sm uppercase tracking-wider text-paper">
                     {name}
                   </span>
                 </div>
