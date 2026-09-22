@@ -15,7 +15,7 @@ export default function WaterHeroVisual() {
         hue={0}
         saturation={1.1}
         brightness={1.05}
-        opacity={0.55}
+        opacity={0.9}
         style={{ background: "transparent" }}
       />
       {/* mutes the shader's built-in center mark without flattening the edges */}
@@ -23,7 +23,7 @@ export default function WaterHeroVisual() {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(circle at 50% 50%, rgba(6,7,8,0.88) 0%, rgba(6,7,8,0.45) 45%, transparent 75%)",
+            "radial-gradient(circle at 50% 50%, rgba(6,7,8,0.6) 0%, rgba(6,7,8,0.25) 45%, transparent 75%)",
         }}
       />
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center lg:justify-end lg:pr-16 xl:pr-28">

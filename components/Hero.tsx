@@ -7,7 +7,7 @@ const ACCENTS = ["#7C6FF0", "#0D9488", "#F1650B", "#0EA5E9"];
 
 function HeroHeadline() {
   return (
-    <h1 className="section-heading max-w-3xl text-4xl leading-[1.08] sm:text-5xl md:text-6xl lg:text-7xl">
+    <h1 className="section-heading max-w-3xl text-4xl leading-[1.08] sm:text-5xl md:text-6xl lg:text-7xl [text-shadow:0_2px_24px_rgba(6,7,8,0.85)]">
       {hero.headline} <RotatingWords words={hero.rotatingPhrases} />
     </h1>
   );
@@ -19,8 +19,8 @@ export default function Hero() {
       {/* full-bleed animated water background, sitting behind everything */}
       <div className="absolute inset-0 -z-20">
         <WaterHeroVisual />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/25" />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/40" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-ink/55 via-ink/25 to-transparent" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/50 via-transparent to-ink/20" />
       </div>
 
       {/* colorful ambient blobs, quiet by default */}
@@ -43,7 +43,7 @@ export default function Hero() {
         </Reveal>
 
         <Reveal delay={100}>
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg">{hero.sub}</p>
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg [text-shadow:0_2px_16px_rgba(6,7,8,0.9)]">{hero.sub}</p>
         </Reveal>
 
         <Reveal delay={200}>
