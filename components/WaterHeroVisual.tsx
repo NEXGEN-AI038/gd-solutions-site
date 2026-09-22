@@ -18,12 +18,12 @@ export default function WaterHeroVisual() {
         opacity={0.9}
         style={{ background: "transparent" }}
       />
-      {/* mutes the shader's built-in center mark without flattening the edges */}
+      {/* fully hides the shader's built-in center mark (an OpenAI logo) — solid, not just faded */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(circle at 50% 50%, rgba(6,7,8,0.6) 0%, rgba(6,7,8,0.25) 45%, transparent 75%)",
+            "radial-gradient(circle at 50% 50%, rgba(6,7,8,1) 0%, rgba(6,7,8,1) 34%, rgba(6,7,8,0.9) 46%, rgba(6,7,8,0.4) 62%, transparent 82%)",
         }}
       />
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center lg:justify-end lg:pr-16 xl:pr-28">
