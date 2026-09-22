@@ -36,7 +36,7 @@ export default function TechStack() {
       </div>
 
       <Reveal delay={100}>
-        <div className="group relative mt-16 space-y-6">
+        <div className="group relative mt-16 space-y-8">
           <div
             className="pointer-events-none absolute inset-y-0 left-0 z-10 w-28"
             style={{ background: "linear-gradient(to right, rgba(6,7,8,1) 0%, transparent 100%)" }}
@@ -46,53 +46,49 @@ export default function TechStack() {
             style={{ background: "linear-gradient(to left, rgba(6,7,8,1) 0%, transparent 100%)" }}
           />
 
-          {/* row 1 — scrolls left */}
+          {/* row 1 — drifts left */}
           <div className="overflow-hidden">
             <div
-              className="flex w-max items-center gap-5 animate-marquee group-hover:[animation-play-state:paused]"
-              style={{ animationDuration: "32s" }}
+              className="flex w-max items-center gap-6 animate-marquee group-hover:[animation-play-state:paused]"
+              style={{ animationDuration: "46s" }}
             >
               {rowA.map(({ name, color, Icon }, i) => (
                 <div
                   key={`a-${name}-${i}`}
-                  className="flex shrink-0 items-center gap-3 rounded-lg border bg-panel px-6 py-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-signal/10"
-                  style={{ borderColor: `${color}33` }}
+                  className="flex h-36 w-36 shrink-0 flex-col items-center justify-center gap-3 rounded-2xl border bg-panel transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-signal/10"
+                  style={{ borderColor: `${color}40` }}
                 >
                   <span
-                    className="flex h-10 w-10 items-center justify-center rounded-md"
-                    style={{ background: `${color}1A` }}
+                    className="flex h-14 w-14 items-center justify-center rounded-xl"
+                    style={{ background: `${color}1F` }}
                   >
-                    <Icon className="h-5 w-5" style={{ color }} />
+                    <Icon className="h-7 w-7" style={{ color }} />
                   </span>
-                  <span className="whitespace-nowrap font-mono text-sm uppercase tracking-wider text-paper">
-                    {name}
-                  </span>
+                  <span className="font-mono text-xs uppercase tracking-wider text-paper">{name}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* row 2 — scrolls right, opposite direction for a layered feel */}
+          {/* row 2 — drifts right, opposite direction for a layered feel */}
           <div className="overflow-hidden">
             <div
-              className="flex w-max items-center gap-5 animate-marquee group-hover:[animation-play-state:paused]"
-              style={{ animationDuration: "38s", animationDirection: "reverse" }}
+              className="flex w-max items-center gap-6 animate-marquee group-hover:[animation-play-state:paused]"
+              style={{ animationDuration: "54s", animationDirection: "reverse" }}
             >
               {rowB.map(({ name, color, Icon }, i) => (
                 <div
                   key={`b-${name}-${i}`}
-                  className="flex shrink-0 items-center gap-3 rounded-lg border bg-panel px-6 py-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-signal/10"
-                  style={{ borderColor: `${color}33` }}
+                  className="flex h-36 w-36 shrink-0 flex-col items-center justify-center gap-3 rounded-2xl border bg-panel transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-signal/10"
+                  style={{ borderColor: `${color}40` }}
                 >
                   <span
-                    className="flex h-10 w-10 items-center justify-center rounded-md"
-                    style={{ background: `${color}1A` }}
+                    className="flex h-14 w-14 items-center justify-center rounded-xl"
+                    style={{ background: `${color}1F` }}
                   >
-                    <Icon className="h-5 w-5" style={{ color }} />
+                    <Icon className="h-7 w-7" style={{ color }} />
                   </span>
-                  <span className="whitespace-nowrap font-mono text-sm uppercase tracking-wider text-paper">
-                    {name}
-                  </span>
+                  <span className="font-mono text-xs uppercase tracking-wider text-paper">{name}</span>
                 </div>
               ))}
             </div>
