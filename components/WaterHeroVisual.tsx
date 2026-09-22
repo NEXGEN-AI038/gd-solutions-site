@@ -1,30 +1,24 @@
 "use client";
 
 import Image from "next/image";
-import { ElementsCollection } from "@designcodeio/threeui/components/ElementsCollection";
+import { PredictiveArcCanvas } from "@designcodeio/threeui/components/PredictiveArcCanvas";
 import "@designcodeio/threeui/style.css";
 
 export default function WaterHeroVisual() {
   return (
     <div className="relative h-full w-full overflow-hidden">
-      <ElementsCollection
-        variant="water"
+      <PredictiveArcCanvas
+        variant="amber-halftone"
+        mode="dark"
         speed={0.8}
-        size={1.5}
-        particleAmount={1.1}
-        hue={0}
-        saturation={1.1}
-        brightness={1.05}
+        size={1.1}
+        length={1}
+        density={1}
         opacity={0.9}
+        hue={0}
+        saturation={1}
+        brightness={1}
         style={{ background: "transparent" }}
-      />
-      {/* fully hides the shader's built-in center mark (an OpenAI logo) — solid, not just faded */}
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(circle at 50% 50%, rgba(6,7,8,1) 0%, rgba(6,7,8,1) 34%, rgba(6,7,8,0.9) 46%, rgba(6,7,8,0.4) 62%, transparent 82%)",
-        }}
       />
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center lg:justify-end lg:pr-16 xl:pr-28">
         <div className="flex flex-col items-center gap-3 rounded-2xl bg-white/10 px-8 py-7 ring-1 ring-white/20 backdrop-blur-md shadow-[0_0_60px_20px_rgba(255,255,255,0.12)] sm:px-10 sm:py-8">
