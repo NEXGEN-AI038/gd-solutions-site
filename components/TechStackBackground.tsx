@@ -9,13 +9,13 @@ export default function TechStackBackground() {
       <LaserCollection
         variant="halftone-relay"
         speed={0.5}
-        size={0.8}
-        length={0.8}
-        density={0.6}
-        opacity={0.2}
+        size={1}
+        length={1}
+        density={0.9}
+        opacity={0.5}
         hue={165}
-        saturation={0.7}
-        brightness={0.8}
+        saturation={0.85}
+        brightness={1.1}
         style={{ background: "transparent" }}
       />
     </div>
