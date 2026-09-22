@@ -7,7 +7,10 @@ const ACCENTS = ["#7C6FF0", "#0D9488", "#F1650B", "#0EA5E9"];
 
 function HeroHeadline() {
   return (
-    <h1 className="section-heading max-w-3xl text-4xl leading-[1.08] sm:text-5xl md:text-6xl lg:text-7xl [text-shadow:0_2px_24px_rgba(6,7,8,0.85)]">
+    <h1
+      className="section-heading max-w-3xl text-4xl leading-[1.08] sm:text-5xl md:text-6xl lg:text-7xl [text-shadow:0_2px_24px_rgba(6,7,8,0.85)]"
+      style={{ color: "#F5F7FA" }}
+    >
       {hero.headline} <RotatingWords words={hero.rotatingPhrases} />
     </h1>
   );
@@ -19,8 +22,19 @@ export default function Hero() {
       {/* full-bleed animated water background, sitting behind everything */}
       <div className="absolute inset-0 -z-20">
         <WaterHeroVisual />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-ink/55 via-ink/25 to-transparent" />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/50 via-transparent to-ink/20" />
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to right, rgba(6,7,8,0.75) 0%, rgba(6,7,8,0.45) 45%, rgba(6,7,8,0.1) 75%, transparent 100%)",
+          }}
+        />
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background: "linear-gradient(to top, rgba(6,7,8,0.55) 0%, transparent 40%, rgba(6,7,8,0.25) 100%)",
+          }}
+        />
       </div>
 
       {/* colorful ambient blobs, quiet by default */}
@@ -43,7 +57,12 @@ export default function Hero() {
         </Reveal>
 
         <Reveal delay={100}>
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg [text-shadow:0_2px_16px_rgba(6,7,8,0.9)]">{hero.sub}</p>
+          <p
+            className="mt-6 max-w-xl text-base leading-relaxed sm:text-lg [text-shadow:0_2px_16px_rgba(6,7,8,0.9)]"
+            style={{ color: "rgba(245,247,250,0.8)" }}
+          >
+            {hero.sub}
+          </p>
         </Reveal>
 
         <Reveal delay={200}>
@@ -61,11 +80,16 @@ export default function Hero() {
           <div className="mt-10 flex flex-wrap gap-x-10 gap-y-3">
             {about.stats.slice(0, 3).map((s) => (
               <div key={s.label}>
-                <span className="font-display text-2xl font-semibold text-paper">
+                <span className="font-display text-2xl font-semibold" style={{ color: "#F5F7FA" }}>
                   {s.value}
                   <span className="text-signal">{s.suffix}</span>
                 </span>
-                <p className="font-mono text-[11px] uppercase tracking-wider text-muted">{s.label}</p>
+                <p
+                  className="font-mono text-[11px] uppercase tracking-wider"
+                  style={{ color: "rgba(245,247,250,0.55)" }}
+                >
+                  {s.label}
+                </p>
               </div>
             ))}
           </div>
@@ -75,7 +99,8 @@ export default function Hero() {
           {hero.tags.map((tag, i) => (
             <div
               key={tag}
-              className="flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-muted"
+              className="flex items-center gap-2 font-mono text-xs uppercase tracking-wider"
+              style={{ color: "rgba(245,247,250,0.55)" }}
             >
               <span style={{ color: ACCENTS[i % ACCENTS.length] }}>{String(i + 1).padStart(2, "0")}</span>
               {tag}
