@@ -1,15 +1,34 @@
+"use client";
+
 import { about } from "@/lib/content";
 import Counter from "./Counter";
 import Reveal from "./Reveal";
 import { SparkleIcon, TargetIcon, ShieldIcon, BookIcon } from "./Icons";
+import { PredictiveArcCanvas } from "@designcodeio/threeui/components/PredictiveArcCanvas";
+import "@designcodeio/threeui/style.css";
 
 const ICONS = [SparkleIcon, TargetIcon, ShieldIcon, BookIcon];
 const ACCENT_TEXT = ["text-signal", "text-warm", "text-violet", "text-sky"];
 
 export default function About() {
   return (
-    <section id="about" className="border-t border-line py-24">
-      <div className="container-page">
+    <section id="about" className="relative overflow-hidden border-t border-line py-24">
+      <div className="pointer-events-none absolute inset-0 z-0">
+        <div className="shader-frame h-full w-full">
+          <PredictiveArcCanvas
+            variant="ribbon-field"
+            speed={1.0}
+            pointerAmount={1.0}
+            smoothing={0.035}
+            hue={0}
+            saturation={1.0}
+            brightness={1.0}
+            opacity={1.0}
+          />
+        </div>
+      </div>
+
+      <div className="container-page relative z-10">
         <Reveal>
           <p className="eyebrow mb-4">{about.eyebrow}</p>
           <h2 className="section-heading max-w-2xl">{about.heading}</h2>
