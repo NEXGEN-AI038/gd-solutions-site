@@ -5,6 +5,8 @@ import { useSearchParams } from "next/navigation";
 import { contact, site, buildWhatsappLink } from "@/lib/content";
 import Reveal from "./Reveal";
 import { MailIcon, PinIcon, WhatsappGlyphIcon, LinkedinIcon, InstagramIcon } from "./Icons";
+import { StructureFlowCollection } from "@designcodeio/threeui";
+import "@designcodeio/threeui/style.css";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
@@ -50,8 +52,19 @@ function ContactInner() {
   }
 
   return (
-    <section id="contact" className="border-t border-line bg-panel2 py-24">
-      <div className="container-page">
+    <section id="contact" className="relative overflow-hidden border-t border-line bg-panel2 py-24">
+      <div className="pointer-events-none absolute inset-0 z-0">
+        <div className="shader-frame h-full w-full">
+          <StructureFlowCollection
+            variant="ember-storm"
+            hue={0}
+            saturation={1.0}
+            brightness={1.0}
+          />
+        </div>
+      </div>
+
+      <div className="container-page relative z-10">
         <Reveal>
           <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow mb-4">{contact.eyebrow}</p>
