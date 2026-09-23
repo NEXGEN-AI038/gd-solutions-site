@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { contact, site, buildWhatsappLink } from "@/lib/content";
 import Reveal from "./Reveal";
 import { MailIcon, PinIcon, WhatsappGlyphIcon, LinkedinIcon, InstagramIcon } from "./Icons";
-import { StructureFlowCollection } from "@designcodeio/threeui";
+import { StructureFlowCollection } from "@designcodeio/threeui/components/StructureFlowCollection";
 import "@designcodeio/threeui/style.css";
 
 type Status = "idle" | "sending" | "sent" | "error";
