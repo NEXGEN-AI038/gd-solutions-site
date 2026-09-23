@@ -1,10 +1,26 @@
 import Image from "next/image";
 import { nav, site } from "@/lib/content";
+import { StructureFlowCollection } from "@designcodeio/threeui/components/StructureFlowCollection";
+import "@designcodeio/threeui/style.css";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-line py-12">
-      <div className="container-page flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
+    <footer className="relative overflow-hidden border-t border-line py-12">
+      <div className="pointer-events-none absolute inset-0 z-0">
+        <div className="shader-frame h-full w-full">
+          <StructureFlowCollection
+            variant="emerald-horizon"
+            speed={1.0}
+            waveScale={1.0}
+            variation={1.0}
+            hue={0}
+            glow={1.0}
+            vignette={1.0}
+          />
+        </div>
+      </div>
+
+      <div className="container-page relative z-10 flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <div className="flex items-center gap-3">
             <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white border border-line">
@@ -34,7 +50,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="container-page mt-10 flex flex-col gap-3 border-t border-line pt-6 sm:flex-row sm:items-center sm:justify-between">
+      <div className="container-page relative z-10 mt-10 flex flex-col gap-3 border-t border-line pt-6 sm:flex-row sm:items-center sm:justify-between">
         <p className="font-mono text-xs text-muted">
           © {site.year} {site.name}. All rights reserved.
         </p>
