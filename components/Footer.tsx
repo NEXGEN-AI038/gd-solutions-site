@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { nav, site } from "@/lib/content";
 import { StructureFlowCollection } from "@designcodeio/threeui/components/StructureFlowCollection";
