@@ -1,8 +1,21 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
+import "@designcodeio/threeui/style.css";
 import { pricing } from "@/lib/content";
 import Reveal from "./Reveal";
+
+// WebGL animation: load on the client only so it never runs during SSR.
+// Import from the per-component entry, not the package root — the root barrel
+// pulls in Gallery/SectionElements, whose inline data-URL assets break Next's webpack build.
+const ConstellationField = dynamic(
+  () =>
+    import("@designcodeio/threeui/components/ConstellationField").then(
+      (m) => m.ConstellationField
+    ),
+  { ssr: false }
+);
 
 function CheckIcon({ included }: { included: boolean }) {
   if (included) {
@@ -21,13 +34,30 @@ function CheckIcon({ included }: { included: boolean }) {
   );
 }
 
+const formatINR = (n: number) => n.toLocaleString("en-IN");
+
 export default function Pricing() {
   const [yearly, setYearly] = useState(false);
   const discount = pricing.yearlyDiscountPercent;
 
   return (
-    <section id="pricing" className="border-t border-line py-24">
-      <div className="container-page">
+    <section id="pricing" className="relative overflow-hidden border-t border-line py-24">
+      <div className="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
+        <ConstellationField
+          variant="gateway-flow"
+          mode="dark"
+          speed={1.0}
+          size={1.0}
+          length={1.0}
+          density={1.0}
+          opacity={1.0}
+          hue={0}
+          saturation={1.0}
+          brightness={1.0}
+        />
+      </div>
+
+      <div className="container-page relative z-10">
         <Reveal>
           <p className="eyebrow mb-4">{pricing.eyebrow}</p>
           <h2 className="section-heading max-w-xl">{pricing.heading}</h2>
@@ -36,28 +66,37 @@ export default function Pricing() {
 
         <Reveal delay={100}>
           <div className="mt-10 flex items-center justify-center gap-4">
-            <span className={`font-mono text-xs uppercase tracking-wider ${!yearly ? "text-paper" : "text-muted"}`}>
+            <button
+              type="button"
+              onClick={() => setYearly(false)}
+              className={`font-mono text-xs uppercase tracking-wider transition-colors ${!yearly ? "text-paper" : "text-muted hover:text-paper"}`}
+            >
               Monthly
-            </span>
+            </button>
             <button
               type="button"
               role="switch"
               aria-checked={yearly}
               onClick={() => setYearly((v) => !v)}
+              aria-label="Toggle yearly billing"
               className={`relative h-7 w-14 shrink-0 rounded-full border transition-colors duration-300 ${
                 yearly ? "border-signal bg-signal/30" : "border-line bg-panel"
               }`}
             >
               <span
-                className={`absolute top-0.5 h-5 w-5 rounded-full bg-signal shadow transition-transform duration-300 ${
-                  yearly ? "translate-x-7" : "translate-x-0.5"
+                className={`absolute left-[3px] top-[3px] h-5 w-5 rounded-full bg-signal shadow transition-transform duration-300 ${
+                  yearly ? "translate-x-7" : "translate-x-0"
                 }`}
               />
             </button>
             <span className="flex items-center gap-2">
-              <span className={`font-mono text-xs uppercase tracking-wider ${yearly ? "text-paper" : "text-muted"}`}>
+              <button
+                type="button"
+                onClick={() => setYearly(true)}
+                className={`font-mono text-xs uppercase tracking-wider transition-colors ${yearly ? "text-paper" : "text-muted hover:text-paper"}`}
+              >
                 Yearly
-              </span>
+              </button>
               <span className="rounded-full border border-signal/30 bg-signal/10 px-2 py-0.5 font-mono text-[10px] text-signal">
                 -{discount}%
               </span>
@@ -67,9 +106,10 @@ export default function Pricing() {
 
         <div className="mt-14 grid grid-cols-1 gap-8 lg:grid-cols-3">
           {pricing.plans.map((plan, i) => {
-            const displayPrice = yearly
-              ? Math.round(plan.monthlyPrice * (1 - discount / 100))
-              : plan.monthlyPrice;
+            const fullYearPrice = plan.monthlyPrice * 12;
+            const yearlyPrice = Math.round(fullYearPrice * (1 - discount / 100));
+            const displayPrice = yearly ? yearlyPrice : plan.monthlyPrice;
+            const savings = fullYearPrice - yearlyPrice;
 
             return (
               <Reveal key={plan.name} delay={i * 100}>
@@ -89,11 +129,16 @@ export default function Pricing() {
                   </span>
 
                   <div className="mt-5 flex items-baseline gap-1">
-                    <span className="font-display text-4xl font-semibold text-paper">₹{displayPrice}</span>
-                    <span className="font-mono text-xs text-muted">/ month</span>
+                    <span className="font-display text-4xl font-semibold text-paper">₹{formatINR(displayPrice)}</span>
+                    <span className="font-mono text-xs text-muted">{yearly ? "/ year" : "/ month"}</span>
+                    {yearly && (
+                      <span className="ml-2 font-mono text-xs text-muted line-through">₹{formatINR(fullYearPrice)}</span>
+                    )}
                   </div>
                   {yearly && (
-                    <p className="mt-1 font-mono text-[11px] text-muted">billed annually · {discount}% off</p>
+                    <p className="mt-1 font-mono text-[11px] text-muted">
+                      ₹{formatINR(plan.monthlyPrice)} × 12 months · {discount}% off · you save ₹{formatINR(savings)}
+                    </p>
                   )}
 
                   <p className="mt-4 text-sm leading-relaxed text-muted">{plan.description}</p>
@@ -129,8 +174,6 @@ export default function Pricing() {
             ))}
           </div>
         </Reveal>
-
-        <p className="mt-8 text-center font-mono text-[11px] text-muted">* {pricing.note}</p>
       </div>
     </section>
   );
