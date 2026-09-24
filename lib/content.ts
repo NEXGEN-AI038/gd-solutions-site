@@ -478,7 +478,7 @@ export const pricing = {
   plans: [
     {
       name: "Basic",
-      monthlyPrice: 1000,
+      monthlyPrice: 999,
       description: "Basic Website with 5-8 web pages.",
       recommended: false,
       features: [
@@ -494,7 +494,7 @@ export const pricing = {
     },
     {
       name: "Economy",
-      monthlyPrice: 1500,
+      monthlyPrice: 1499,
       description: "Standard Website with 8-10 web pages.",
       recommended: true,
       features: [
@@ -510,7 +510,7 @@ export const pricing = {
     },
     {
       name: "Enterprise",
-      monthlyPrice: 2000,
+      monthlyPrice: 1999,
       description: "Pro Website with 10-15 web pages.",
       recommended: false,
       features: [
