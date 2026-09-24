@@ -369,66 +369,103 @@ export const caseStudies = {
   eyebrow: "Case Studies",
   heading: "Automation in the wild",
   sub: "A closer look at workflows we've actually built — real infographics from live projects.",
-  items: [
+    items: [
     {
-      title: "From Webhook to Inbox: an Automated Data Workflow",
-      tag: "Data Automation",
-      image: "/case-studies/automated-data-workflow-process.webp",
+      title: "Automated WhatsApp Lead Follow-Up",
+      tag: "AI Automation",
+      image: "/case-studies/whatsapp-lead-bot.png",
       story: {
-        client: "Operations team handling incoming data feeds",
+        client: "Sales & Lead Generation",
         scenario:
-          "The team received a constant stream of unpredictable webhook data that needed converting into usable records and communicating to stakeholders.",
+          "New leads landed in a shared Google Sheet, but nobody messaged them until someone remembered to check it — often a day or two later, by which point many had already gone with a competitor.",
         challenges: [
-          "Manual JSON parsing was slow and error-prone",
-          "No consistent way to cross-reference new records against existing data",
-          "File retrieval and email updates were done by hand",
+          "Leads sat untouched for hours or days after signing up",
+          "Follow-up depended on someone remembering to check the sheet",
+          "No consistent first message, so tone and info varied lead to lead",
         ],
         solution:
-          "Built an automated pipeline that captures webhook data, iterates through each record, cross-references it against a database and spreadsheet, then retrieves relevant files and sends updates via Gmail automatically.",
+          "A Make.com automation watches the Google Sheet for new rows and instantly sends a templated WhatsApp Business message the moment a lead is added — no manual step required.",
         benefit:
-          "Eliminated manual data entry entirely and cut the time from data receipt to stakeholder notification from hours to minutes.",
+          "Every lead now gets a reply within seconds instead of hours or days, and the team no longer has to babysit a spreadsheet to keep leads warm.",
       },
     },
     {
-      title: "The Automated Invoice & Receipt Management Workflow",
-      tag: "Finance Automation",
-      image: "/case-studies/automated-invoice-management-process.webp",
+      title: "Lucky — Multilingual AI Voice Assistant",
+      tag: "Voice AI",
+      image: "/case-studies/voice-bot.png",
       story: {
-        client: "Finance team managing a high email volume",
+        client: "Client Intake & Qualification",
         scenario:
-          "Invoices and receipts arrived in a shared Gmail inbox faster than the team could manually sort, extract data from, and log them.",
+          "Every inbound call had to be answered live, then manually written up, checked, and followed up by email — a 15–20 minute process per call, even for simple questions.",
         challenges: [
-          "High volume of unsorted invoices and receipts",
-          "Manual data entry led to duplicate ledger entries",
-          "No consistent validation before entries were finalized",
+          "Calls outside business hours went to voicemail and were often never returned",
+          "Language switching (English, Hindi, Bengali) meant only certain staff could take certain calls",
+          "Lead details were written down by hand, so information sometimes got lost or wrong",
         ],
         solution:
-          "An AI-powered pipeline monitors the inbox, classifies each document as an invoice or receipt, extracts the relevant data, validates it across channels, checks for duplicates, and logs every entry to the ledger automatically.",
+          "Lucky answers every call, detects and switches languages automatically, asks qualifying questions, then — through Vapi and Make.com — logs the call report and sends a confirmation email before handing qualified leads to the team.",
         benefit:
-          "Removed manual sorting and data entry, cut duplicate entries to near zero, and gave the finance team a fully validated, always-current ledger.",
+          "Calls are answered day or night in the caller's own language, every lead is captured accurately with no manual note-taking, and the team only steps in once a lead is already qualified.",
       },
     },
     {
-      title: "The Anatomy of a Telegram Cloth Store Bot",
-      tag: "Conversational AI",
-      image: "/case-studies/messaging-store-bot-anatomy.webp",
+      title: "Sahayak AI — Case Triage Dashboard",
+      tag: "AI Automation",
+      image: "/case-studies/sahayak-ai.png",
       story: {
-        client: "Retail store selling via Telegram",
+        client: "Community Support Services",
         scenario:
-          "Customers messaged the store directly on Telegram to browse items, ask questions and place orders — all handled manually by staff.",
+          "Requests for help arrived through multiple channels and had to be read, categorized, and prioritized by hand before anyone could act — a bottleneck that grew worse as volume increased.",
         challenges: [
-          "Staff had to manually respond to every message",
-          "No easy way to track customer history or order status",
-          "Payment and order data lived in disconnected spreadsheets",
+          "Urgent cases could sit behind routine ones with no automatic flagging",
+          "Categorizing each request by hand was slow and inconsistent between staff",
+          "No single view of how many cases were open, in progress, or resolved",
         ],
         solution:
-          "Built a five-path logic router inside Telegram that handles menu browsing, item selection, checkout and payment automatically, synced live to Sheets and a data store.",
+          "Sahayak AI reads each incoming request, suggests a category and priority, and organizes everything into a live dashboard — Today's Cases, Needs Review, In Progress, and Resolved.",
         benefit:
-          "The bot now handles the full purchase flow with no manual intervention, freeing up staff time and giving the business a live, always-accurate record of every order.",
+          "Critical cases surface immediately instead of waiting in a queue, and the team can see their full caseload at a glance instead of digging through scattered records.",
+      },
+    },
+    {
+      title: "Paws & Wellness — Pet Care Storefront",
+      tag: "Website Design",
+      image: "/case-studies/paws-and-wellness.png",
+      story: {
+        client: "Pet Care & Veterinary Retail",
+        scenario:
+          "Before the site, booking a grooming slot or asking about vaccination meant calling during business hours and hoping someone would pick up, with no way to browse products online first.",
+        challenges: [
+          "Appointment requests only came in by phone, with no after-hours option",
+          "No online storefront meant every product question needed a call or a visit",
+          "No consistent, branded first impression for people finding the business online",
+        ],
+        solution:
+          "A single site now covers the shop, grooming and vaccination booking, and vet consultation requests, with WhatsApp and appointment buttons on every page.",
+        benefit:
+          "Customers can browse, book, and message the business at any hour instead of only during store hours, and the brand now looks as trustworthy online as it does in person.",
+      },
+    },
+    {
+      title: "MPS Relocations — Booking & Quote Website",
+      tag: "Website Design",
+      image: "/case-studies/logistics-website.png",
+      story: {
+        client: "Packers, Movers & Logistics",
+        scenario:
+          "Getting a moving quote meant calling in, describing the job, and waiting for a callback with a price — often losing the customer to whichever competitor responded first.",
+        challenges: [
+          "No way to request a quote outside of a phone call",
+          "Local, same-day delivery requests were handled the same slow way as long-distance moves",
+          "No visible proof of coverage area to build trust before someone called",
+        ],
+        solution:
+          "The site lets customers request a free moving quote or book instant local delivery directly from the homepage, with coverage area and guarantees shown up front.",
+        benefit:
+          "Quote requests come in anytime without a phone call, and instant local delivery bookings are now self-serve instead of a manual back-and-forth.",
       },
     },
   ],
-};
 
 export const techStack = {
   eyebrow: "Our Stack",
