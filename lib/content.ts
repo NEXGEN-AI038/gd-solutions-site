@@ -466,6 +466,73 @@ export const caseStudies = {
       },
     },
   ],
+};
+
+export const pricing = {
+  eyebrow: "Pricing",
+  heading: "Professional Website Design Packages",
+  sub: "Modern, responsive websites built for growth — choose the plan that fits your business.",
+  yearlyDiscountPercent: 20,
+  note: "Costs mentioned are exclusive of domain, hosting and annual maintenance — these are chargeable on actuals.",
+  plans: [
+    {
+      name: "Basic",
+      monthlyPrice: 1000,
+      description: "Basic Website with 5-8 web pages.",
+      recommended: false,
+      features: [
+        { label: "Free Domain", included: true },
+        { label: "Free Hosting", included: true },
+        { label: "5 - 8 Web Pages", included: true },
+        { label: "2 business webmail email id", included: true },
+        { label: "1 enquiry form", included: true },
+        { label: "Basic SEO Done", included: true },
+        { label: "Free Chat Integration", included: true },
+        { label: "Content", included: false },
+      ],
+    },
+    {
+      name: "Economy",
+      monthlyPrice: 1500,
+      description: "Standard Website with 8-10 web pages.",
+      recommended: true,
+      features: [
+        { label: "Free Domain", included: true },
+        { label: "Free Hosting", included: true },
+        { label: "8 - 10 Web Pages", included: true },
+        { label: "2 business webmail email id", included: true },
+        { label: "2 enquiry form", included: true },
+        { label: "Basic SEO Done", included: true },
+        { label: "Free Chat Integration", included: true },
+        { label: "Content", included: true },
+      ],
+    },
+    {
+      name: "Enterprise",
+      monthlyPrice: 2000,
+      description: "Pro Website with 10-15 web pages.",
+      recommended: false,
+      features: [
+        { label: "Free Domain", included: true },
+        { label: "Free Hosting", included: true },
+        { label: "10 - 12 Web Pages", included: true },
+        { label: "5 business webmail email id", included: true },
+        { label: "3 - 5 enquiry form", included: true },
+        { label: "Basic SEO Done", included: true },
+        { label: "Free Chat Integration", included: true },
+        { label: "Content", included: true },
+      ],
+    },
+  ],
+  highlights: [
+    { title: "Fast & Reliable", body: "Turbo speed loading for better performance." },
+    { title: "Mobile Responsive", body: "Looks great on all devices." },
+    { title: "Secure & Scalable", body: "Built for long-term growth." },
+    { title: "Dedicated Support", body: "We're here when you need us." },
+    { title: "Modern Design", body: "Clean, professional and engaging." },
+  ],
+  ctaLabel: "Order Now",
+};
 
 export const techStack = {
   eyebrow: "Our Stack",
